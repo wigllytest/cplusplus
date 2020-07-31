@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double lenght, width, height, procent, litres;
+	cin >> lenght >> width >> height >> procent;
+
+	litres = (lenght *  width * height)* 0.001 * ((100 - procent)/100);
+
+	cout.setf(ios::fixed);
+	cout.precision(3);
+
+	cout << litres;
+
+	return 0;
+}
