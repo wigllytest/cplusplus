@@ -1,0 +1,20 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+	double whiskeyPrice, beerLitres, wineLitres, rakiaLitres, whiskeyLitres;
+	cin >> whiskeyPrice >> beerLitres >> wineLitres >> rakiaLitres >> whiskeyLitres;
+
+	double beerPrice, winePrice, rakiaPrice, totalAmmount;
+
+	totalAmmount = whiskeyPrice * whiskeyLitres + 0.2 * 0.5 * whiskeyPrice * beerLitres + 0.6 * 0.5 * whiskeyPrice * wineLitres + 0.5 * whiskeyPrice * rakiaLitres;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << totalAmmount;
+
+	return 0;
+}
