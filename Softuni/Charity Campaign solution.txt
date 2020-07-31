@@ -1,0 +1,21 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+	int days, cooks, cakes, waffles, pancakes;
+	cin >> days >> cooks >> cakes >> waffles >> pancakes;
+
+	double sumEarnings = days * cooks * ((cakes * 45) + (waffles * 5.8) + (pancakes * 3.2));
+
+
+	double profit = sumEarnings * 7 / 8;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << profit;
+
+	return 0;
+}
