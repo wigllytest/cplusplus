@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double ownDog, neighborDog, leva;
+	cin >> ownDog >> neighborDog;
+
+	leva = (ownDog * 2.50) + (4 * neighborDog);
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << leva << " lv.";
+
+
+
+	return 0;
+}
