@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double grassArea;
+	double grossLeva, discount, totalLeva;
+
+	cin >> grassArea;
+
+	grossLeva = grassArea * 7.61;
+	discount = grossLeva * 0.18;
+	totalLeva = grossLeva - discount;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << "The final price is: " << totalLeva << " lv." << endl;
+	cout << "The discount is: " << discount << " lv." << endl;
+
+
+	return 0;
+}
