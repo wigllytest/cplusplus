@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	double lenght, width, aWardrobe;
+	cin >> lenght >> width >> aWardrobe;
+	double dancers;
+
+	double hallArea = (lenght*100) * (width*100);
+	double wardrobeArea = aWardrobe*100 * aWardrobe*100;
+	double benchArea = hallArea / 10;
+	double dancerArea;
+	dancerArea = 7040;
+	double freeArea = hallArea - wardrobeArea - benchArea;
+
+	dancers = freeArea / dancerArea;
+
+	cout << floor(dancers);
+
+	return 0;
+}

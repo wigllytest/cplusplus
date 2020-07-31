@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int tableQuantity;
+	double length, width;
+	cin >> tableQuantity;
+	cin >> length;
+	cin >> width;
+
+
+	double usd, bgn;
+
+	double areaTableCloth = tableQuantity * (length + 2 * 0.3) * (width + 2 * 0.3);
+	double areaTableSquare = tableQuantity * (length / 2) * (length / 2);
+
+	usd = (7 * areaTableCloth) + (9 * areaTableSquare);
+	bgn = usd * 1.85;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << usd << " USD" << endl;
+	cout << bgn << " BGN" << endl;
+
+	return 0;
+}
