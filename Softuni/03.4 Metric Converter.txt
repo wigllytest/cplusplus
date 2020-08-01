@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	double num;
+	string iUnit, oUnit;
+
+	cin >> num >> iUnit >> oUnit;
+
+	double tempCm = 0;
+	// 1 m = 100 cm = 1000 mm
+	// 1 cm = 10 mm
+
+
+	if (iUnit =="mm")
+	{	
+		tempCm = num / 10;
+	}
+	else if (iUnit == "cm")
+	{
+		tempCm = num;
+	}
+	else if (iUnit == "m")
+	{
+		tempCm = num * 100;
+	}
+
+	double result = 0;
+	if (oUnit == "mm")
+	{
+		result = tempCm * 10;
+	}
+	else if (oUnit == "cm")
+	{
+		result = tempCm;
+	}
+	else if (oUnit == "m")
+	{
+		result = tempCm / 100;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(3);
+
+	cout << result;
+
+	return 0;
+}

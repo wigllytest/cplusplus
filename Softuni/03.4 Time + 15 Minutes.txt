@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	int iHour, iMinute, oHour, oMinute;
+	
+	cin >> iHour >> iMinute;
+
+	int totalMinutes = iMinute + 60 * iHour;
+	totalMinutes +=15;
+
+	oHour = totalMinutes / 60;
+	oMinute = totalMinutes % 60;
+
+	if (oHour >= 24)
+	{
+		oHour -= 24;
+	}
+
+	if (oMinute < 10)
+	{
+		cout << oHour << ":0" << oMinute;
+	}
+	else
+	{
+		cout << oHour << ":" << oMinute;
+	}
+
+	return 0;
+}
