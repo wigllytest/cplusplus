@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double travel, moneyNeed, moneyLeft, totalMoney;
+	int puzzleQuan, dollQuant, bearQuan, minionQuan, truckQuan, totalQuan;
+
+	cin >> travel >> puzzleQuan >> dollQuant >> bearQuan >> minionQuan >> truckQuan;
+
+	double puzzle, doll, bear, minion, truck;
+
+	puzzle = puzzleQuan * 2.6;
+	doll = 3 * dollQuant;
+	bear = bearQuan * 4.1;
+	minion = minionQuan * 8.2;
+	truck = 2 * truckQuan;
+
+	totalQuan = puzzleQuan + dollQuant + bearQuan + minionQuan + truckQuan;
+	totalMoney = puzzle + doll + bear + minion + truck;
+
+	if (totalQuan >=50)
+	{
+		totalMoney = totalMoney * 0.75;
+	}
+	
+
+	double finalPrice = totalMoney * 0.9;
+ 
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (finalPrice >= travel)
+	{
+		moneyLeft = finalPrice - travel;
+		cout << "Yes! " << moneyLeft << " lv left." << endl;
+	}
+	else 
+	{
+		moneyNeed = travel - totalMoney * 0.9;
+		cout << "Not enough money! " << moneyNeed << " lv needed." << endl;
+	}
+
+
+
+	return 0;
+}
