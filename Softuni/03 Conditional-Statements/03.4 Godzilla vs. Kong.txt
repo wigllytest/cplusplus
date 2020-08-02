@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	double budget, extraCount, extraClothesPrice;
+	cin >> budget >> extraCount >> extraClothesPrice;
+
+	double decor = 0.1 * budget;
+
+	if (extraCount > 150)
+	{
+		extraClothesPrice = extraClothesPrice * 0.9;
+	}
+
+	double totalCost = decor + extraCount * extraClothesPrice;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (totalCost > budget)
+	{
+		double moneyNeed = totalCost - budget;
+		cout << "Not enough money!" << endl;
+		cout << "Wingard needs " << moneyNeed << " leva more.";
+	}
+	else
+	{
+		double moneyLeft = budget - totalCost;
+		cout << "Action!" << endl;
+		cout << "Wingard starts filming with " << moneyLeft << " leva left.";
+	}
+
+
+	return 0;
+}
