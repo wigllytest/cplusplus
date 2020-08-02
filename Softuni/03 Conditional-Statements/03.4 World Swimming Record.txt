@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	double record, distanceM, timeM;
+	cin >> record;
+	cin >> distanceM;
+	cin >> timeM;
+
+	double trackT = distanceM * timeM;
+	double delay = floor(distanceM / 15) * 12.5;
+	double timeIvan = trackT + delay;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (timeIvan < record)
+	{
+		cout << "Yes, he succeeded! The new world record is " << timeIvan << " seconds.";
+	}
+	else
+	{
+		cout << "No, he failed! He was " << abs(record - timeIvan) << " seconds slower.";
+	}
+
+
+	return 0;
+}
