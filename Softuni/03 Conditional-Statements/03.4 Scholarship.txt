@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+
+
+using namespace std;
+
+int main()
+{
+	double income, gpa, minWage;
+	cin >> income >> gpa >> minWage;
+	//cin >> gpa;
+	//cin >> minWage;
+
+
+	double scholarshipSoc = floor(0.35 * minWage);
+	double scholarshipExc = floor(25 * gpa);
+
+	if (income > minWage && gpa < 5.5)
+	{
+		cout << "You cannot get a scholarship!";
+	}
+	else if (income < minWage && gpa < 4.5)
+	{
+		cout << "You cannot get a scholarship!";
+	}
+	else if (income < minWage && gpa >= 4.5 && gpa < 5.5)
+	{
+		cout << "You get a Social scholarship " << scholarshipSoc << " BGN";
+	}
+	else if (gpa >= 5.5)
+	{
+		cout << "You get a scholarship for excellent results " << scholarshipExc << " BGN";
+	}
+	else if (scholarshipExc >= scholarshipSoc)
+	{
+		cout << "You get a scholarship for excellent results " << scholarshipExc << " BGN";
+	}
+	else if (scholarshipExc < scholarshipSoc)
+	{
+		cout << "You get a Social scholarship " << scholarshipSoc << " BGN";
+	}
+	
+
+
+	return 0;
+}
