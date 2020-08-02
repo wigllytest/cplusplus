@@ -1,28 +1,33 @@
 #include <iostream>
+#include <string>
+#include <cmath>
+
 
 using namespace std;
 
 int main() 
 {
-	double record, distanceM, timeM;
-	cin >> record;
-	cin >> distanceM;
-	cin >> timeM;
+	double recordTime, distanceInMeters, secondPerMeter;
+	cin >> recordTime;
+	cin >> distanceInMeters;
+	cin >> secondPerMeter;
 
-	double trackT = distanceM * timeM;
-	double delay = floor(distanceM / 15) * 12.5;
-	double timeIvan = trackT + delay;
+	double secondsRes = distanceInMeters * secondPerMeter;
+	double delayTime = floor(distanceInMeters / 15) * 12.5;
+
+	double totalTime = secondsRes + delayTime;
 
 	cout.setf(ios::fixed);
 	cout.precision(2);
 
-	if (timeIvan < record)
+	if (totalTime < recordTime)
 	{
-		cout << "Yes, he succeeded! The new world record is " << timeIvan << " seconds.";
+		cout << "Yes, he succeeded! The new world record is " << totalTime << " seconds.";
 	}
-	else
+	else if (totalTime >= recordTime)
+
 	{
-		cout << "No, he failed! He was " << abs(record - timeIvan) << " seconds slower.";
+		cout << "No, he failed! He was " << abs(recordTime - totalTime) << " seconds slower.";
 	}
 
 
