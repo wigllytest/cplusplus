@@ -1,0 +1,84 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	string flowers;
+	int flowerQuantity;
+	double budget;
+	cin >> flowers >> flowerQuantity >> budget;
+
+	double price = 0;
+
+	if (flowers == "Roses")
+	{
+		if (flowerQuantity > 80)
+		{
+			price = 5.0 * flowerQuantity * 0.9;
+		}
+		else
+		{
+			price = 5.0 * flowerQuantity;
+		}
+	}
+	else if (flowers == "Dahlias")
+	{
+		if (flowerQuantity > 90)
+		{
+			price = 3.80 * flowerQuantity * 0.85;
+		}
+		else
+		{
+			price = 3.80 * flowerQuantity;
+		}
+	}
+	else if (flowers == "Tulips")
+	{
+		if (flowerQuantity > 80)
+		{
+			price = 2.80 * flowerQuantity * 0.85;
+		}
+		else
+		{
+			price = 2.80 * flowerQuantity;
+		}
+	}
+	else if (flowers == "Narcissus")
+	{
+		if (flowerQuantity < 120)
+		{
+			price = 3.0 * flowerQuantity * 1.15;
+		}
+		else
+		{
+			price = 3.0 * flowerQuantity;
+		}
+	}
+	else if (flowers == "Gladiolus")
+	{
+		if (flowerQuantity < 80)
+		{
+			price = 2.50 * flowerQuantity * 1.2;
+		}
+		else
+		{
+			price = 2.50 * flowerQuantity;
+		}
+	}
+	//•	Ако бюджета им е достатъчен - "Hey, you have a great garden with {броя цвета} {вид цветя} and {останалата сума} leva left."
+	//•	Ако бюджета им е НЕ достатъчен - "Not enough money, you need {нужната сума} leva more."
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (budget >= price)
+	{
+		cout << "Hey, you have a great garden with " << flowerQuantity << " " << flowers << " and " << budget - price << " leva left.";
+	}
+	else
+	{
+		cout << "Not enough money, you need " << price - budget << " leva more.";
+	}
+
+	return 0;
+}
