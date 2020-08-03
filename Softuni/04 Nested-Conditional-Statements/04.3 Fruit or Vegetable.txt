@@ -1,0 +1,27 @@
+#include <iostream>
+
+
+using namespace std;
+
+int main() {
+	
+	string item;
+	cin >> item;
+
+	if (item == "banana" || item == "apple" || item == "kiwi" || item == "cherry" || item == "lemon" || item == "grapes")
+	{
+		cout << "fruit";
+	}
+	else if (item == "tomato" || item == "cucumber" || item == "pepper" || item == "carrot")
+	{
+		cout << "vegetable";
+	}
+	else
+	{
+		cout << "unknown";
+	}
+
+
+
+	return  0;
+}
