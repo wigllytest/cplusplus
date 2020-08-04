@@ -1,0 +1,33 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	string typeYear;
+	int p, h;
+	cin >> typeYear >> p >> h;
+
+	double weekends = (48 - h) * 3.0 / 4;
+	//cout << weekends << endl;
+	double hollydays = p * 2.0 / 3;
+	//cout << hollydays << endl;;
+	double allPlays = weekends + hollydays + h;
+	//cout << allPlays << endl;;
+
+	if (typeYear == "leap")
+	{
+		allPlays *= 1.15;
+	}
+	else
+	{
+		allPlays = allPlays;
+	}
+
+	cout << floor(allPlays);
+
+
+	return 0;
+}
