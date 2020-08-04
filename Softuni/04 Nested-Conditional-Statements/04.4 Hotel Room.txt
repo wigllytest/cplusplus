@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	string month;
+	int nights;
+	cin >> month >> nights;
+
+	double stPrice = 0;
+	double apStudio = 0;
+
+	if (month == "May" || month == "October")
+	{
+
+		if (nights > 7 && nights <= 13)
+		{
+		stPrice = 50 * 0.95;
+		apStudio = 65;
+		}
+		else if (nights > 14)
+		{
+		stPrice = 50 * 0.7;
+		apStudio = 65 * 0.9;
+		}
+		else
+		{
+		stPrice = 50;
+		apStudio = 65;
+		}
+
+	}
+	else if (month == "June" || month == "September")
+	{
+
+
+		if (nights > 14)
+		{
+			stPrice = 75.2 * 0.8;
+			apStudio =  68.7 * 0.9;
+		}
+		else
+		{
+			stPrice = 75.2;
+			apStudio = 68.7;
+		}
+
+	}
+	else if (month == "July" || month == "August")
+	{
+		stPrice = 76;
+		apStudio = 77;
+		if (nights > 14)
+		{
+			apStudio = 77 * 0.9;
+		}
+
+
+
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << "Apartment: " << apStudio * nights << " lv." << endl;
+	cout << "Studio: " << stPrice * nights << " lv.";
+
+
+
+	return 0;
+}
