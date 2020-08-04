@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	
+	double budget;
+	string season;
+	cin >> budget;
+	cin >> season;
+
+	string place, accomodation;
+	double cost = 0;
+
+	if (budget <= 100)
+	{
+		place = "Bulgaria";
+
+		if (season == "summer")
+		{
+			cost = budget * 0.3;
+			accomodation = "Camp";
+		}
+		else if (season == "winter")
+		{
+			cost = budget * 0.7;
+			accomodation = "Hotel";
+		}
+	}
+	else if (budget > 100 && budget <= 1000)
+	{
+		place = "Balkans";
+
+		if (season == "summer")
+		{
+			cost = budget * 0.4;
+			accomodation = "Camp";
+		}
+		else if (season == "winter")
+		{
+			cost = budget * 0.8;
+			accomodation = "Hotel";
+		}
+	}
+	else if (budget > 1000)
+	{
+		place = "Europe";
+		cost = budget * 0.9;	
+		accomodation = "Hotel";
+	}
+
+	//•	Първи ред – „Somewhere in [дестинация]“ измежду “Bulgaria", "Balkans” и ”Europe”
+	//•	Втори ред – “{ Вид почивка } –{ Похарчена сума }“
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << "Somewhere in " << place << endl;
+	cout << accomodation << " - " << cost;
+
+
+	return 0;
+}
