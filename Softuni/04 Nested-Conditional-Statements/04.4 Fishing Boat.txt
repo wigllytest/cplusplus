@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int budget, fishermen;
+	string season;
+	cin >> budget >> season >> fishermen;
+
+	double price = 0;
+
+	if (season == "Spring")
+	{
+		if		(fishermen <= 6)				    price = 3000 * 0.9;
+		else if (fishermen >= 7 && fishermen <= 11) price = 3000 * 0.85;
+		else if (fishermen >= 12)			    	price = 3000 * 0.75;		
+	}
+	else if (season == "Summer")
+	{
+		if		(fishermen <= 6)					price = 4200 * 0.9;
+		else if (fishermen >= 7 && fishermen <= 11) price = 4200 * 0.85;
+		else if (fishermen >= 12)				    price = 4200 * 0.75;
+	}
+	else if (season == "Autumn")
+	{
+		if		(fishermen <= 6)				    price = 4200 * 0.9;
+		else if (fishermen >= 7 && fishermen <= 11) price = 4200 * 0.85;
+		else if (fishermen > 12)				    price = 4200 * 0.75;
+	}
+	else if (season == "Winter")
+	{
+		if		(fishermen <= 6)				    price = 2600 * 0.9;
+		else if (fishermen >= 7 && fishermen <= 11) price = 2600 * 0.85;
+		else if (fishermen >= 12)                   price = 2600 * 0.75;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (fishermen % 2 == 0 && season != "Autumn")
+	{
+		price = price * 0.95;
+	}
+	
+	if (budget >= price)
+	{
+		cout << "Yes! You have " << budget - price << " leva left.";
+	}
+	else
+	{
+		cout << "Not enough money! You need " << price - budget << " leva.";
+
+	}
+
+	
+
+	return 0;
+}
