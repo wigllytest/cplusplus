@@ -1,0 +1,67 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int hourExam, minExam, hourArr, minArr;
+	cin >> hourExam >> minExam >> hourArr >> minArr;
+
+	int minutesExam = hourExam * 60 + minExam;
+	int minutesArrival = hourArr * 60 + minArr;
+
+	int deltaMinutes = minutesExam - minutesArrival;
+	int hour = abs(deltaMinutes / 60);
+	int minutes = abs(deltaMinutes % 60);
+
+	if (deltaMinutes < 0)
+	{
+		if (deltaMinutes > - 60)
+		{
+			cout << "Late" << endl;
+			cout << minutes << " minutes after the start";
+		}
+		else if (deltaMinutes <= -60 && minutes >=10)
+		{
+			cout << "Late" << endl;
+			cout << hour << ":" << minutes << " hours after the start";
+		}
+		else if (deltaMinutes <= -60 && minutes < 10)
+		{
+			cout << "Late" << endl;
+			cout << hour << ":0" << minutes << " hours after the start";
+		}
+	}
+	else if (deltaMinutes == 0)
+	{
+		cout << "On time";
+	} 
+	else if (deltaMinutes > 0)
+	{
+		if (deltaMinutes <=30)
+		{
+			cout << "On time" << endl;
+			cout << minutes << " minutes before the start";
+		}
+		else if (deltaMinutes > 30 && deltaMinutes < 60)
+		{
+			cout << "Early" << endl;
+			cout << minutes << " minutes before the start";
+		}
+		else if (deltaMinutes >= 60 && minutes >=10)
+		{
+			cout << "Early" << endl;
+			cout << hour << ":" << minutes << " hours before the start";
+		}
+		else if (deltaMinutes >= 60 && minutes < 10)
+		{
+			cout << "Early" << endl;
+			cout << hour << ":0" << minutes << " hours before the start";
+		}
+	}
+	
+
+
+
+	return 0;
+}
