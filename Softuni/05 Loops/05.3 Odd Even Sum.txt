@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+
+	int evenSum = 0;
+	int oddSum = 0;
+	//1 <= num
+
+	//if( i % 2 == 0)
+	for (int i = 1; i <= n; i++)
+	{
+		int inputNumber;
+		cin >> inputNumber;
+
+		if (i % 2 == 0)
+		{			
+			evenSum += inputNumber;
+		}
+		else
+		{
+			oddSum += inputNumber;
+		}
+
+	}
+	
+	if (evenSum == oddSum)
+	{
+		cout << "Yes" << endl;
+		cout << "Sum = " << evenSum;
+	}
+	else
+	{
+		cout << "No" << endl;
+		cout << "Diff = " << abs(evenSum - oddSum);
+	}
+
+	return 0;
+}
