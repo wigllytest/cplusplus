@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+	int max = INT_MIN;
+	int min = INT_MAX;
+
+
+	for (int i = 0; i < n; i++)
+	{
+		int num1;
+		cin >> num1;
+		if (num1 >= max)
+		{
+			max = num1;
+		}
+		if (num1 < min)
+		{
+			min = num1;
+		}
+	}
+
+	cout << "Max number: " << max << endl;
+	cout << "Min number: " << min << endl;
+
+
+	return 0;
+}
