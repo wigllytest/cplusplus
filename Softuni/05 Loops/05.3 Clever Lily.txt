@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+
+	int age, toyPrice;
+	double wachingPrice;
+
+	cin >> age >> wachingPrice >> toyPrice;
+
+	int moneyPresent = 0;
+	int present = 0;
+	int moneyBonus = 10;
+
+	for (int i = 1; i <= age; i++)
+	{
+
+		if (i % 2 == 0)
+		{
+			moneyPresent += moneyBonus - 1;
+			moneyBonus += 10;
+		}
+		else
+		{
+			present += 1;
+		}
+	}
+
+	double liliMoney = (present * toyPrice) + moneyPresent;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (liliMoney >= wachingPrice)
+	{
+		cout << "Yes! " << liliMoney - wachingPrice << endl;
+	}
+	else
+	{
+		cout << "No! " << wachingPrice - liliMoney << endl;
+
+	}
+
+	return 0;
+}
