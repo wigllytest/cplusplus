@@ -1,0 +1,38 @@
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+
+	int maxNum = INT_MIN;
+	int sum = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		int num;
+		cin >> num;
+		sum += num;
+		if (num >= maxNum)
+		{
+			maxNum = num;
+		}
+	}
+	sum -= maxNum;
+	if (sum == maxNum)
+	{
+		cout << "Yes" << endl;
+		cout << "Sum = " << sum;
+	}
+	else
+	{
+		cout << "No" << endl;
+		cout << "Diff = " << abs(sum - maxNum);
+	}
+
+
+	return 0;
+}
