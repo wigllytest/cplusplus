@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+	int numByTwo = 0;
+	int numByThree = 0;
+	int numByFour = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		int inputNumber;
+		cin >> inputNumber;
+
+		if (inputNumber % 2 == 0) numByTwo++;
+		if (inputNumber % 3 == 0) numByThree++;
+		if (inputNumber % 4 == 0) numByFour++;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+
+	double p1 = 1.0 * numByTwo / n * 100;
+	double p2 = 1.0 * numByThree / n * 100;
+	double p3 = 1.0 * numByFour / n * 100;
+
+	cout << p1 << "%" << endl;
+	cout << p2 << "%" << endl;
+	cout << p3 << "%" << endl;
+
+
+
+	return 0;
+}
