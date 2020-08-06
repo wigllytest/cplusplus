@@ -1,0 +1,64 @@
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+	double evenSum = 0;
+	double oddSum = 0;
+	double evenMax = INT_MIN;
+	double evenMin = INT_MAX;
+
+	double oddMax = INT_MIN;
+	double oddMin = INT_MAX;
+
+	for (int i = 1; i <= n; i++)
+	{
+		double inputNumber;
+		cin >> inputNumber;
+
+
+
+		if (i % 2 == 0)
+		{
+			evenSum += inputNumber;
+
+			if (inputNumber >= evenMax) evenMax = inputNumber; // why >=
+			if (inputNumber < evenMin) evenMin = inputNumber;
+		}
+		else
+		{
+			oddSum += inputNumber;
+
+			if (inputNumber >= oddMax) oddMax = inputNumber; // why >=
+			if (inputNumber < oddMin) oddMin = inputNumber;
+
+		}
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+								cout << "OddSum=" << oddSum << "," << endl;
+
+	if (oddMin < INT_MAX) 		cout << "OddMin=" << oddMin << "," << endl;
+	else						cout << "OddMin=No," << endl;
+
+	if (oddMax > INT_MIN )		cout << "OddMax=" << oddMax << "," << endl;
+	else 						cout << "OddMax=No," << endl;
+
+								cout << "EvenSum=" << evenSum << "," << endl;
+
+	if (evenMin < INT_MAX) 		cout << "EvenMin=" << evenMin << "," << endl;
+	else						cout << "EvenMin=No," << endl;
+
+	if (evenMax > INT_MIN)		cout << "EvenMax=" << evenMax << endl;
+	else 						cout << "EvenMax=No" << endl;
+
+	
+
+	return 0;
+}
