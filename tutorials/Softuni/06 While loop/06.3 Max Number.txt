@@ -1,0 +1,31 @@
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+
+	int count = 0;
+	int numMax = INT_MIN;
+
+	while (count < n)
+	{
+		int inputNum;
+		cin >> inputNum;
+
+		if (inputNum > numMax)
+		{
+			numMax = inputNum;
+		}
+
+		count++;
+	}
+
+	cout << numMax;
+
+
+	return 0;
+}
