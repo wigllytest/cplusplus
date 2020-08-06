@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int n, salary;
+	cin >> n >> salary;
+
+
+	for (int i = 0; i < n; i++)
+	{
+		string inputTab;
+		cin >> inputTab;
+		//cout << inputTab << endl;
+
+		
+		if		(inputTab == "Facebook")  salary -= 150;
+		else if (inputTab == "Instagram") salary -= 100;
+		else if (inputTab == "Reddit")	  salary -= 50;
+
+		if (salary <= 0)
+		{
+			break;
+		}
+	}
+
+	if	(salary == 0) cout << "You have lost your salary.";
+	else			  cout << salary;
+
+
+	return 0;
+}
