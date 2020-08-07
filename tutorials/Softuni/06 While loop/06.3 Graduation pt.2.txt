@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	string name;
+	cin >> name;
+
+	int year = 1;
+	double sumGrade = 0;
+
+	while (year <= 12)
+	{
+		double grade;
+		cin >> grade;
+		if (grade < 4)
+		{
+			if (grade < 4)
+			{
+				break;
+			}
+		}
+		else if (grade >= 4)
+		{
+			sumGrade += grade;
+			year++;
+		}
+	}
+
+	double averageGrades = sumGrade / 12;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (year < 12)
+	{
+		cout << name << " has been excluded at " << year << " grade";
+
+	}
+	else if (year == 12)
+	{
+		cout << name << " graduated. Average grade: " << averageGrades;
+
+	}
+
+
+	return 0;
+}

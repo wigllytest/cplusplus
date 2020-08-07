@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	string name;
+	cin >> name;
+	int year = 0;
+	double sumGrade = 0;
+		while (year < 12)
+		{
+			double grade;
+			cin >> grade;
+			if (grade >=4)
+			{
+				sumGrade += grade;
+				year++;
+			}
+		}
+
+		double averageGrades = sumGrade / year;
+		cout.setf(ios::fixed);
+		cout.precision(2);
+
+		cout << name << " graduated. Average grade: " << averageGrades;
+		
+
+	return 0;
+}
