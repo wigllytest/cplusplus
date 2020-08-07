@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	int width, length, height;
+	cin >> width >> length >> height;
+	int apVolume = width * length * height;
+
+	string command;
+	cin >> command;
+
+	while (command != "Done")
+	{
+		int box = stoi(command);
+		apVolume -= box;
+
+		if (apVolume < 0)
+		{
+			break;
+		}
+		cin >> command;	
+	}
+
+	if (apVolume >= 0)
+	{
+		cout << apVolume << " Cubic meters left.";
+	}
+	else
+	{
+		cout << "No more free space! You need " << abs(apVolume) << " Cubic meters more.";
+	}
+
+
+
+	return 0;
+}
