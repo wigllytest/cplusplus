@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double neededMoney, balance;
+	cin >> neededMoney;
+	cin >> balance;
+
+	int dayCounter = 0;
+	int spendDayCount = 0;
+
+	while (balance < neededMoney)
+	{
+		string type;
+		double money;
+		cin >> type;
+		cin >> money;
+		dayCounter++;
+
+		if (type == "spend")
+		{
+			balance -= money;
+			spendDayCount++;
+			if (balance < 0)
+			{
+				balance = 0;
+			}
+		}
+		else if (type == "save")
+		{
+			balance += money;
+			spendDayCount = 0;
+		}
+
+		if (spendDayCount == 5)
+		{
+			break;
+		}
+
+	}
+
+	if (balance >= neededMoney)
+	{
+		cout << "You saved the money for " << dayCounter << " days.";
+
+	}
+	
+	if (spendDayCount == 5)
+	{
+		cout << "You can't save the money." << endl;
+		cout << dayCounter;
+	}
+
+	return 0;
+}
