@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+
+
+using namespace std;
+
+int main() {
+
+	int width, lenght;
+	cin >> width >> lenght;
+
+	int cakePieces = width * lenght;
+
+	string input;
+	cin >> input;
+
+	while (cakePieces >= 0)
+	{
+		
+		if (input == "STOP")
+		{
+			break;
+		}
+		else
+		{
+			int pieces = stoi(input);
+			cakePieces -= pieces;
+		}
+
+		if (cakePieces < 0)
+		{
+			break;
+		}
+
+		cin >> input;
+	}
+
+	if (cakePieces < 0)
+	{
+		cout << "No more cake left! You need " << abs(cakePieces) << " pieces more.";
+	}
+	else if (input == "STOP")
+	{
+		cout << cakePieces << " pieces are left.";
+	}
+
+
+	return 0;
+}
