@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+#include <climits>
+
+
+using namespace std;
+
+int main() {
+
+    
+
+    int sumSteps = 0;
+    int stepsInt = 0;
+
+
+    while (sumSteps < 10000)
+    {
+        string steps;
+        getline(cin, steps);
+        //cin.ignore();
+        
+       // cin >> steps;
+
+        if (steps != "Going home")
+        {
+            stepsInt = stoi(steps);
+            sumSteps += stepsInt;
+            if (sumSteps >= 10000)
+            {
+                cout << "Goal reached! Good job!";
+                break;
+            }
+            //cin >> steps;
+
+        }
+        else
+        {
+            cin >> steps;
+            stepsInt = stoi(steps);
+            sumSteps += stepsInt;
+
+            if (sumSteps < 10000)
+            {
+                sumSteps = 10000 - sumSteps;
+                cout << sumSteps << " more steps to reach goal.";
+            }
+            else
+            {
+                cout << "Goal reached! Good job!";
+            }
+            break;
+        }
+
+    }
+	return 0;
+}
