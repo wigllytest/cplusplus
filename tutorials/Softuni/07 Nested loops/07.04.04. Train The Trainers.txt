@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	int n;
+	cin >> n;
+	string input;
+	//cin >> input;
+
+	cin.ignore();
+	getline(cin, input);
+
+	int counter = 0;
+	double gradeSum = 0;
+	double average = 0;
+	int countGrade = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+
+	while (input != "Finish")
+	{
+		
+		while (counter < n)
+		{
+			countGrade++;
+			counter++;
+			double grade;
+			cin >> grade;
+			gradeSum += grade;
+			average += grade;
+		}
+		counter = 0;
+		//average += gradeSum/;
+		cout << input << " - " << gradeSum / n << "." << endl;
+		gradeSum = 0;
+		cin.ignore();
+		getline(cin, input);
+	}
+
+	cout << "Student's final assessment is " << average/ countGrade << ".";
+
+	return 0;
+}
