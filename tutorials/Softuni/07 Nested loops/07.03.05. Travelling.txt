@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	string destination;
+	getline(cin, destination);
+	//cin >> destination;
+
+	while (destination != "End")
+	{
+		double vacationMoney;
+		//int vacationMoney;
+		cin >> vacationMoney;
+		//int money = 0;
+		double money = 0;
+
+		while (vacationMoney > money)
+		{
+			//int moneySaved;
+			double moneySaved;
+
+			cin >> moneySaved;
+			money += moneySaved;
+		}
+		cout << "Going to " << destination << "!" << endl;
+		//cin.ignore();
+		//getline(cin, destination);
+		cin >> destination;
+	}
+	return 0;
+}
