@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	
+		double lenght, width; cin >> lenght >> width;
+
+	double collums = floor ((width - 1) * 1.0 / 0.7);
+	double rows = floor(lenght* 1.0 / 1.2);
+
+	int workPlaces = rows * collums - 3;
+
+	cout << workPlaces;
+	return 0;
+}
