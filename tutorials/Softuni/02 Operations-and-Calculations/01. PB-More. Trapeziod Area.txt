@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double b1, b2, h; cin >> b1 >> b2 >> h;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	double areaTrapezoid = (b1 + b2) * 1.0 * h / 2;
+
+		cout << areaTrapezoid << endl;
+
+	return 0;
+}
