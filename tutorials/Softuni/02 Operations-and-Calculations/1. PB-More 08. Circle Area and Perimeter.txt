@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double r; cin >> r;
+	
+
+
+	double areaCircle = 3.1415926535 * r * r;   // π r²
+		double perCircle = 2 * 3.1415926535 * r;    //Perimeter (P) = 2 · π · R. 
+
+		cout.setf(ios::fixed);
+		cout.precision(2);
+		cout << areaCircle << endl;
+		cout << perCircle;
+	return 0;
+}

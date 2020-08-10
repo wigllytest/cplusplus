@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double x, y, h; cin >> x >> y >> h;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	double walls = (x * x - (1.2 * 2)) + (x * x) + 2 * (x * y - 1.5 * 1.5);
+
+	double roofArea = 2 * (x * y) + (x * h); // area triangle  = x * h / 2
+	double redPaint = roofArea * 1.0 / 4.3;
+	double greenPaint = walls * 1.0 / 3.4;
+
+	cout << greenPaint << endl;
+	cout << redPaint << endl;
+
+
+	return 0;
+}
