@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int magnPc, zumbPc, rosePc, cactusPc; 
+	cin >> magnPc >> zumbPc >> rosePc >> cactusPc;
+	double pricePresent; cin >> pricePresent;
+
+	double moneyEarn = ((magnPc * 1.0 * 3.25) + (zumbPc * 1.0 * 4.0) + (rosePc * 1.0 * 3.5) +
+		(cactusPc * 1.0 * 8)) * 0.95;
+	double moneyLeft = floor(moneyEarn - pricePresent);
+	double moneyNeed = ceil(pricePresent - moneyEarn);
+	if (moneyEarn >= pricePresent)
+	{
+		cout << "She is left with " << moneyLeft << " leva.";
+	}
+	else
+	{
+		cout << "She will have to borrow " << moneyNeed << " leva.";
+	}
+
+	return 0;
+}
