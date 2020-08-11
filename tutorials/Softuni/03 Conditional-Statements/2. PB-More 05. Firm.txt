@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int neededHours, days, overtimePeons; cin >> neededHours >> days >> overtimePeons;
+	int overtime = overtimePeons * days * 2;
+	int workHours = (days * 8 * 0.9) + overtime;
+	int leftHours = floor(workHours - neededHours);
+	int notEnoughHours = floor(abs(workHours - neededHours));
+	if (workHours >= neededHours)
+	{
+		cout << "Yes!" << leftHours << " hours left.";
+	}
+	else if (workHours < neededHours)
+	{
+		cout << "Not enough time!" << notEnoughHours << " hours needed.";
+	}
+
+	return 0;
+}

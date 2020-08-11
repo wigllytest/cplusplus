@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	double days, petFoodKg; cin >> days >> petFoodKg;
+	double dogFoodKg, catFoodKg, turtleFoodGram; cin >> dogFoodKg >> catFoodKg >> turtleFoodGram;
+
+	double foodForPets = days * (dogFoodKg + catFoodKg + turtleFoodGram / 1000);
+	double letfFood = floor(petFoodKg - foodForPets);
+	double notEnoughFood = ceil(abs(petFoodKg - foodForPets));
+	if (foodForPets <= petFoodKg)
+	{
+		cout << letfFood << " kilos of food left.";
+	}
+	else if (foodForPets > petFoodKg)
+	{
+		cout << notEnoughFood << " more kilos of food are needed.";
+	}
+
+
+	return 0;
+}
