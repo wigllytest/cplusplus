@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int volume, p1, p2; cin >> volume >> p1 >> p2;
+	double H; cin >> H;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	double filledVolume = (p1 * H) + (p2 * H);
+
+	if (filledVolume <= volume)
+	{
+		cout << "The pool is " << filledVolume / volume * 100 << "% full. Pipe 1: " <<
+			p1*H / filledVolume * 100 << "%. Pipe 2: " << p2*H / filledVolume * 100 << "%.";
+	}
+	else
+	{
+		cout << "For " << H << " hours the pool oveerflows with "
+			<< filledVolume - volume << " liters.";
+	}
+
+
+
+	return 0;
+}
