@@ -1,0 +1,30 @@
+#include <iostream>
+// how to use tolower?
+using namespace std;
+
+int main() {
+
+	string fuelType; cin >> fuelType;
+	int litresFuel; cin >> litresFuel;
+
+	if (fuelType != "Diesel" && fuelType != "Gasoline" && fuelType != "Gas")
+	{
+		cout << "Invalid fuel!";
+	}
+	else if (litresFuel >= 25)
+	{
+		if (fuelType == "Diesel") cout << "You have enough diesel.";
+		else if (fuelType == "Gas") cout << "You have enough gas.";
+		else if (fuelType == "Gasoline") cout << "You have enough gasoline.";
+	}
+
+	else if (litresFuel < 25)
+	{
+		if (fuelType == "Diesel") cout << "Fill your tank with diesel!";
+		else if (fuelType == "Gas") cout << "Fill your tank with gas!";
+		else if (fuelType == "Gasoline") cout << "Fill your tank with gasoline!";
+	}
+	
+
+	return 0;
+}
