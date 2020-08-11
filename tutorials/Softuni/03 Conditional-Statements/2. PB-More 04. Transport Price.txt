@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int km; cin >> km;
+	string dayNight; cin >> dayNight;
+	double price = 1;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (km >= 20 && km < 100)
+	{
+		price = km * 0.09;
+	}
+	else if (km >= 100)
+	{
+		price = km * 0.06;
+	}
+	else if (km <20)
+	{
+		if (dayNight == "day")
+		{
+			price = km * 0.79 + 0.7;
+		}
+		else if (dayNight == "night")
+		{
+			price = km * 0.9 + 0.7;
+		}
+	}
+	cout << price;
+
+
+	return 0;
+}
