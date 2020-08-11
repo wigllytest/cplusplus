@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+
+	int hollidays; cin >> hollidays;
+
+	int workPlay = (365 - hollidays) * 63;
+	int holyPlay = hollidays * 127;
+	int totalMinutes = workPlay + holyPlay;
+	int hours = abs(30000 - totalMinutes) / 60;
+	int minutes = abs(30000 - totalMinutes) % 60;
+
+	if (totalMinutes > 30000)
+	{
+		cout << "Tom will run away" << endl;
+		cout << hours << " hours and " << minutes << " minutes more for play";
+	}
+	else
+	{
+		cout << "Tom sleeps well" << endl;
+		cout << hours << " hours and " << minutes << " minutes less for play";
+
+	}
+
+
+	return 0;
+}
