@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int juniorBikers, seniorBikers; cin >> juniorBikers >> seniorBikers;
+	string traceType; cin >> traceType;
+
+	double moneyEarned = 0;
+
+	if (traceType == "trail")
+	{
+		moneyEarned = (juniorBikers * 5.5) + (1.0*seniorBikers * 7);
+	}
+	else if (traceType == "cross-country")
+	{
+		if (juniorBikers + seniorBikers >= 50)
+		{
+			moneyEarned = 0.75 * ((1.0*juniorBikers * 8) + (seniorBikers * 9.5));
+		}
+		else
+		{
+			moneyEarned = ((1.0*juniorBikers * 8) + (seniorBikers * 9.5));
+		}
+	}
+	else if (traceType == "downhill")
+	{
+		moneyEarned = (juniorBikers * 12.25) + (seniorBikers * 13.75 );
+	}
+	else if (traceType == "road")
+	{
+		moneyEarned = (1.0* juniorBikers * 20) + (seniorBikers * 21.5);
+
+	}
+
+
+	moneyEarned = moneyEarned * 0.95; // 5% expenses
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << moneyEarned;
+
+
+	return 0;
+}
