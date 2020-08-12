@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	string fuel; cin >> fuel;
+	double litresFuel; cin >> litresFuel;
+	string clubCard; cin >> clubCard;
+
+	bool chekCard = true;
+
+	if		(clubCard == "No")  chekCard = false;
+	else if (clubCard == "Yes") chekCard = true;
+
+	double dieselPrice = 2.33;
+	double dieselDiscount = 0.12;
+	double gasolinePrice = 2.22;
+	double gasolineDiscount = 0.18;
+	double gasPrice = 0.93;
+	double gasDiscount = 0.08;
+
+	if (chekCard)
+	{
+		dieselPrice -= dieselDiscount;
+		gasolinePrice -= gasolineDiscount;
+		gasPrice -= gasDiscount;
+	}
+
+	double priceForFuel = 0;
+
+	if (fuel == "Gas")
+	{
+		if (clubCard == "Yes") priceForFuel = litresFuel * (gasPrice);
+		else				   priceForFuel = litresFuel * gasPrice;
+	}
+	else if (fuel == "Gasoline")
+	{
+		if (clubCard == "Yes") priceForFuel = litresFuel * (gasolinePrice);
+		else				   priceForFuel = litresFuel * gasolinePrice;
+	}
+	else if (fuel == "Diesel")
+	{
+		if (clubCard == "Yes") priceForFuel = litresFuel * (dieselPrice);
+		else				   priceForFuel = litresFuel * dieselPrice;
+	}
+	//else cout << "Invalid fuel!";
+
+
+	//if		(litresFuel <= 20) 					   priceForFuel = priceForFuel;
+	if		(litresFuel > 25)  priceForFuel = priceForFuel * 0.90;
+	else if (litresFuel >= 20) priceForFuel = priceForFuel * 0.92;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << priceForFuel << " lv.";
+
+	return 0;
+}
