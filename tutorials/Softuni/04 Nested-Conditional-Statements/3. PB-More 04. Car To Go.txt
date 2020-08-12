@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double budget; cin >> budget;
+	string season; cin >> season;
+	string classCar, typeCar;
+
+	double priceCar = 0;
+
+	if		(season == "Summer") typeCar = "Cabrio";
+	else if (season == "Winter") typeCar = "Jeep";
+
+
+	if (budget <= 100)
+	{
+		classCar = "Economy class";
+		if		(season == "Summer") priceCar = budget * 0.35;
+		else if (season == "Winter") priceCar = budget * 0.65;
+	}
+	else if (budget > 100 && budget <= 500) 
+	{
+		classCar = "Compact class";
+		if		(season == "Summer") priceCar = budget * 0.45;
+		else if (season == "Winter") priceCar = budget * 0.8;
+	}
+	else if (budget > 500)
+	{
+		classCar = "Luxury class";
+		typeCar = "Jeep";
+		priceCar = budget * 0.9;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << classCar << endl;
+	cout << typeCar << " - " << priceCar;
+
+
+
+	return 0;
+}
