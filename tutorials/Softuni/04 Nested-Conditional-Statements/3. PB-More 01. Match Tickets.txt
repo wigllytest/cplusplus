@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	double budget;   cin >> budget;
+	string category; cin >> category;
+	int peoples;	 cin >> peoples;
+
+	double priceVip = 499.99;
+	double priceNormal = 249.99;
+
+	double spentMoney = 0;
+	double transport = 0;
+
+	if      (peoples > 0  && peoples <5)    transport = budget * 0.75;
+	else if (peoples > 4  && peoples < 10)  transport = budget * 0.6;
+	else if (peoples > 9  && peoples < 25)  transport = budget * 0.5;
+	else if (peoples > 24 && peoples < 50)  transport = budget * 0.4;
+	else if (peoples > 49)				    transport = budget * 0.25;
+
+	if		(category == "VIP")   	spentMoney = transport + (peoples * priceVip);
+	else if (category == "Normal") 	spentMoney = transport + (peoples * priceNormal);
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	double leftMoney = budget - spentMoney;
+	double neededMoney = spentMoney - budget;
+
+
+	if		(budget >= spentMoney) cout << "Yes! You have " << leftMoney << " leva left.";
+	else if (budget < spentMoney)  cout << "Not enough money! You need " << neededMoney << " leva.";
+
+	return 0;
+}
