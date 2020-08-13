@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double inputNumber; cin >> inputNumber;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	while (inputNumber >=0)
+	{
+		cout << "Result: " << inputNumber * 1.0 * 2.0 << endl;
+		cin >> inputNumber;
+	}
+
+	cout << "Negative number!";
+
+	return 0;
+}
