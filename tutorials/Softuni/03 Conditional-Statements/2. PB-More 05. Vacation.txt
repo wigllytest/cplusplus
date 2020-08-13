@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double budget; cin >> budget;
+	string season; cin >> season;
+
+	double spendMoney = 0;
+	string location, typeAccomodation;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (budget <= 1000)
+	{
+		typeAccomodation = "Camp";
+		if (season == "Summer")
+		{
+			spendMoney = budget * 0.65;
+			location = "Alaska";
+		}
+		else if (season == "Winter")
+		{
+			spendMoney = budget * 0.45;
+			location = "Morocco";
+		}
+	}
+	else if (budget > 1000 && budget <= 3000)
+	{
+		typeAccomodation = "Hut";
+		if (season == "Summer")
+		{
+			spendMoney = budget * 0.8;
+			location = "Alaska";
+		}
+		else if (season == "Winter")
+		{
+			spendMoney = budget * 0.6;
+			location = "Morocco";
+		}
+
+	}
+	else if (budget > 3000)
+		{
+			typeAccomodation = "Hotel";
+			if (season == "Summer")
+			{
+				spendMoney = budget * 0.9;
+				location = "Alaska";
+			}
+			else if (season == "Winter")
+			{
+				spendMoney = budget * 0.9;
+				location = "Morocco";
+			}
+		}
+	
+	cout << location << " - " << typeAccomodation << " - " << spendMoney;
+	return 0;
+}
