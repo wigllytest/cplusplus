@@ -1,0 +1,79 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	string season, typeGroup; cin >> season >> typeGroup;
+	int studentsCount, nights; cin >> studentsCount >> nights;
+
+	double vacationPrice = 0;
+	string sportType;
+
+	if (season == "Winter")
+	{
+		if (typeGroup == "boys")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 9.6;
+			sportType = "Judo";
+		}
+		else if (typeGroup == "girls")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 9.6;
+			sportType = "Gymnastics";
+		}
+		else if (typeGroup == "mixed")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 10.0;
+			sportType = "Ski";
+		}
+	}
+	else if (season == "Spring")
+	{
+		if (typeGroup == "boys")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 7.0;
+			sportType = "Tennis";
+		}
+		else if (typeGroup == "girls")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 7.2;
+			sportType = "Athletics";
+		}
+		else if (typeGroup == "mixed")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 9.5;
+			sportType = "Cycling";
+		}
+	}
+	else if (season == "Summer")
+	{
+		if (typeGroup == "boys")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 15.0;
+			sportType = "Football";
+		}
+		else if (typeGroup == "girls")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 15.0;
+			sportType = "Volleyball";
+		}
+		else if (typeGroup == "mixed")
+		{
+			vacationPrice = studentsCount * 1.0 * nights * 20.0;
+			sportType = "Swimming";
+		}
+	}
+
+	if		(studentsCount >= 50) vacationPrice = vacationPrice * 0.5;
+	else if (studentsCount >= 20) vacationPrice = vacationPrice * 0.85;
+	else if (studentsCount >= 10) vacationPrice = vacationPrice * 0.95;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	cout << sportType << " " << vacationPrice << " lv.";
+
+	return 0;
+}
