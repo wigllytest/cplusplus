@@ -1,0 +1,68 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	string input, output; cin >> input;
+
+	int charCounterC = 0;
+	int charCounterO = 0;
+	int charCounterN = 0;
+
+	while (input != "End")
+	{
+		for (int i = 0; i < input.size(); i++) {
+
+			// Finding the character whose  
+			// ASCII value fall under this 
+			// range 
+			if (input[i] < 'A' || input[i] > 'Z' &&
+				input[i] < 'a' || input[i] > 'z')
+			{
+				// erase function to erase  
+				// the character 
+				input.erase(i, 1);
+				i--;
+			}
+		}
+
+		if (input == "c")
+		{
+			charCounterC++;
+			if (charCounterC > 1) output += input;
+			else                  output = output;
+		}
+		else if (input == "o")
+		{
+			charCounterO++;
+			if (charCounterO > 1) output += input;
+			else				  output = output;
+		}
+		else if (input == "n")
+		{
+			charCounterN++;
+			if (charCounterN > 1) output += input;
+			else				  output = output;
+		}
+
+		if (charCounterC >= 1 && charCounterO >= 1 && charCounterN >= 1)
+		{
+			output += " ";
+			charCounterC = 0;
+			charCounterO = 0;
+			charCounterN = 0;
+		}
+
+		if (input != "c" && input != "o" && input != "n")
+		{
+			output += input;
+		}
+		//cin.ignore();
+		cin >> input;
+	}
+	cout << output;
+
+
+	return 0;
+}
