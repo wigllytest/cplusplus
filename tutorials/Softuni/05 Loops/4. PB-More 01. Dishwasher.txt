@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	int bottles; cin >> bottles;
+
+	int detergent = bottles * 750;
+	int counter = 1;
+	int detergentUsed = 0;
+	int detergentLeft = 0;
+	int detergentNeed = 0;
+	int platesCount = 0;
+	int potCount = 0;
+	int detergentUsing = 0;
+
+	string input; cin >> input;
+
+	while (input != "End")
+	{
+		int pieces = stoi(input);
+
+		if (detergentUsed > detergent)
+		{
+			break;
+		}
+
+		if (counter == 3)
+		{
+			potCount += pieces;
+			detergentUsing = 15 * pieces;
+			counter = 0;
+		}
+		else 
+		{
+			platesCount += pieces;
+			detergentUsing = 5 * pieces;
+
+		}
+		detergentUsed += detergentUsing;
+		counter++;
+		cin >> input;
+	}
+	detergentLeft = detergent - detergentUsed;
+	detergentNeed = detergentUsed - detergent;
+	if (detergentUsed <= detergent)
+	{
+		cout << "Detergent was enough!" << endl;
+		cout << platesCount << " dishes and " << potCount << " pots were washed." << endl;
+		cout << "Leftover detergent " << detergentLeft << " ml.";
+	}
+	else if (detergentUsed > detergent)
+	{
+		cout << "Not enough detergent, " << detergentNeed << " ml. more necessary!";
+	}
+
+
+	return 0;
+}

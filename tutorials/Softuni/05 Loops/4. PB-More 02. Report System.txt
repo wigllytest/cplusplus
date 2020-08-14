@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	int budget; cin >> budget;
+
+	string input; cin >> input;
+	//getline(cin, input);
+	int countNoPayment = 1;
+	int countCash = 0;
+	int countCard = 0;
+	int fundsCollected = 0;
+	int peopleCounter = 0;
+	int fundCash = 0;
+	int fundCard = 0;
+
+	while (input != "End")
+	{
+		int transactions = stoi(input);
+
+		if (countNoPayment % 2 == 1)
+		{
+
+			if (transactions > 100) cout << "Error in transaction!" << endl;
+			else if (true)
+			{
+				fundCash += transactions;
+				countCash++;
+				cout << "Product sold!" << endl;
+			}
+		}
+		else if (countNoPayment % 2 == 0)
+		{
+			if (transactions < 10)  cout << "Error in transaction!" << endl;
+			else if (true)
+			{
+				fundCard += transactions;
+				countCard++;
+				cout << "Product sold!" << endl;
+			}
+		}
+
+
+		countNoPayment++;
+		if ((fundCash + fundCard) >= budget)
+		{
+			break;
+		}
+		//cin.ignore();
+		cin >> input;
+		//cin.ignore();
+
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if ((fundCash + fundCard) >= budget)
+	{
+		cout << "Average CS: " << fundCash * 1.0 / countCash << endl;
+		cout << "Average CC: " << fundCard * 1.0 / countCard << endl;
+	}
+	else
+	{
+		cout << "Failed to collect required money for charity.";
+	}
+
+	
+
+
+
+	return 0;
+}
