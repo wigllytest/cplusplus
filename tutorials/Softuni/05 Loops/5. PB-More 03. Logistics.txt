@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int packageCount; cin >> packageCount;
+	int tons;
+	int microbus = 0;
+	int truck = 0;
+	int train = 0;
+	int priceTons = 0;
+	int totalTons = 0;
+
+	for (int i = 0; i < packageCount; i++)
+	{
+		cin >> tons;
+
+		if (tons <=3)
+		{
+			microbus += tons;
+			priceTons += tons * 200;
+		}
+		else if (tons > 3 && tons < 12)
+		{
+			truck += tons;
+			priceTons += tons * 175;
+		}
+		else if (tons >= 12)
+		{
+			train += tons;
+			priceTons += tons * 120;
+		}
+
+	}
+	totalTons = microbus + truck + train;
+	double averagePrice = priceTons*1.0 / totalTons;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	cout << averagePrice << endl;
+	cout << microbus * 1.0 / totalTons * 100 << "%" << endl;
+	cout << truck * 1.0 / totalTons * 100 << "%" << endl;
+	cout << train * 1.0 / totalTons * 100 << "%" << endl;
+
+	return 0;
+}
