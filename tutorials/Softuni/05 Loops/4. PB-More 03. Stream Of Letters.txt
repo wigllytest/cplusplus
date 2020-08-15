@@ -4,7 +4,12 @@ using namespace std;
 
 int main() {
 
-	string input, output; cin >> input;
+	string input = ""; //cin >> input;
+	string output = "";
+	string secretCommand = "";
+	string text = "";
+	string newWord = "";
+
 
 	int charCounterC = 0;
 	int charCounterO = 0;
@@ -12,6 +17,7 @@ int main() {
 
 	while (input != "End")
 	{
+		cin >> input;
 		for (int i = 0; i < input.size(); i++) {
 
 			// Finding the character whose  
@@ -27,42 +33,80 @@ int main() {
 			}
 		}
 
-		if (input == "c")
+		
+		if (input != "End")
 		{
-			charCounterC++;
-			if (charCounterC > 1) output += input;
-			else                  output = output;
+
+		
+			if (input == "c")
+			{				
+				charCounterC++;
+
+				if (charCounterC > 1) 
+				{
+					text += input;
+				}
+				else
+				{
+					text = text;
+					secretCommand += input;
+				}
+			}
+			else if (input == "o")
+			{				
+				charCounterO++;
+
+				if (charCounterO > 1)
+				{
+					text += input;
+				}
+				else
+				{
+					text = text;
+					secretCommand += input;
+				}
+			}
+			else if (input == "n")
+			{
+				charCounterN++;
+
+				if (charCounterN > 1)
+				{
+					text += input;
+				}
+				else
+				{
+					text = text;
+					secretCommand += input;
+				}
+
+			}
+			else
+			{
+				text += input;
+			}
+
+			if (secretCommand == "con" || secretCommand == "cno" || secretCommand == "ocn" || secretCommand == "onc" || secretCommand == "nco" || secretCommand == "noc")
+			{
+				text += " ";
+				output = text;
+				secretCommand = "";
+				charCounterC = 0;
+				charCounterO = 0;
+				charCounterN = 0;
+			}
 		}
-		else if (input == "o")
+		else
 		{
-			charCounterO++;
-			if (charCounterO > 1) output += input;
-			else				  output = output;
-		}
-		else if (input == "n")
-		{
-			charCounterN++;
-			if (charCounterN > 1) output += input;
-			else				  output = output;
+			break;
 		}
 
-		if (charCounterC >= 1 && charCounterO >= 1 && charCounterN >= 1)
-		{
-			output += " ";
-			charCounterC = 0;
-			charCounterO = 0;
-			charCounterN = 0;
-		}
-
-		if (input != "c" && input != "o" && input != "n")
-		{
-			output += input;
-		}
-		//cin.ignore();
-		cin >> input;
 	}
-	cout << output;
 
+	if (input == "End")
+	{
+		cout << output;
+	}
 
 	return 0;
 }
