@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int days; cin >> days;
+	int patients; 
+
+	int doctorsInHouse = 7;
+	int seenPatients = 0;
+	int sentPatiens = 0;
+
+	for (int i = 1; i <= days; i++)
+	{
+		cin >> patients;
+		if (i % 3 == 0)
+		{
+			if (sentPatiens > seenPatients)	doctorsInHouse++;
+
+		}
+
+		if (doctorsInHouse >= patients) seenPatients += patients;
+		else if (doctorsInHouse < patients)
+		{
+			seenPatients += doctorsInHouse;
+			sentPatiens += (patients - doctorsInHouse);
+		}
+
+
+		//cin >> patients;
+	}
+	cout << "Treated patients: " << seenPatients << "." << endl;
+	cout << "Untreated patients: " << sentPatiens << "." << endl;
+
+
+	return 0;
+}
