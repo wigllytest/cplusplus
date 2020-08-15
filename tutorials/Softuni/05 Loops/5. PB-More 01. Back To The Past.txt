@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double inheritMoney; cin >> inheritMoney;
+	int yearToLive; cin >> yearToLive;
+	int ivanYears = 18;
+
+	for (int i = 1800; i <= yearToLive; i++)
+	{
+		if (i % 2 == 0)
+		{
+			inheritMoney -= 12000;
+		}
+		else if (i % 2 == 1)
+		{
+			inheritMoney = inheritMoney - (12000 + (50 * 1.0 * ivanYears));
+		}
+
+		ivanYears++;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (inheritMoney >=0)
+	{
+		cout << "Yes! He will live a carefree life and will have " << inheritMoney << " dollars left.";
+	}
+	else if (inheritMoney < 0)
+	{
+		cout << "He will need " << -inheritMoney << " dollars to survive.";
+	}
+
+	return 0;
+}
