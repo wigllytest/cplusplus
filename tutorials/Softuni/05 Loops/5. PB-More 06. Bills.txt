@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int months; cin >> months;
+	double electricityBill;
+	double electricityBills = 0;
+	double waterBills = 0;
+	double internetBills = 0;
+	double othersBills = 0;
+	double averageBills = 0;
+
+	for (int i = 0; i < months; i++)
+	{
+		cin >> electricityBill;
+		electricityBills += electricityBill;
+		waterBills += 20;
+		internetBills += 15;
+		othersBills += (electricityBill + 20 + 15) * 1.2;
+			
+	}
+	averageBills = (electricityBills + waterBills + internetBills + othersBills) / months;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << "Electricity: " << electricityBills << " lv" << endl;
+	cout << "Water: " << waterBills << " lv" << endl;
+	cout << "Internet: " << internetBills << " lv" << endl;
+	cout << "Other: " << othersBills << " lv" << endl;
+	cout << "Average: " << averageBills << " lv" << endl;
+	return 0;
+}
