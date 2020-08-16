@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int n; cin >> n;
+
+
+	cout << "+ ";	
+	for (int a = 0; a < n-2; a++)
+	{
+		cout << "- ";
+	}
+	cout << "+" << endl;
+
+	for (int b = 0; b < n-2; b++)
+	{
+		cout << "| ";
+		for (int c = 0; c < n-2; c++)
+		{
+			cout << "- ";
+		}
+		cout << "| " << endl;
+	}
+
+
+	cout << "+ ";
+	for (int d = 0; d < n - 2; d++)
+	{
+		cout << "- ";
+	}
+	cout << "+" << endl;
+
+
+
+	return 0;
+}
