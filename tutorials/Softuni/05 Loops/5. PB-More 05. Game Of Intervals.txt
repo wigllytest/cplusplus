@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int moves; cin >> moves;
+	int points;
+	double result = 0;
+	int countTo9 = 0;
+	int countTo19 = 0;
+	int countTo29 = 0;
+	int countTo39 = 0;
+	int countTo50 = 0;
+	int countInvalid = 0;
+
+	for (int i = 0; i < moves; i++)
+	{
+		cin >> points;
+		if (points >=0 && points <10)
+		{
+			result += points * 0.2;
+			countTo9++;
+		}
+		else if (points >= 10 && points < 20)
+		{
+			result += points * 0.3;
+			countTo19++;
+		}
+		else if (points >= 20 && points < 30)
+		{
+			result += points * 0.4;
+			countTo29++;
+		}
+		else if (points >= 30 && points < 40)
+		{
+			result += 50;
+			countTo39++;
+		}
+		else if (points >= 40 && points <= 50)
+		{
+			result += 100;
+			countTo50++;
+		}
+		else if (points > 50 || points < 0)
+		{
+			result = result / 2;
+			countInvalid++;
+		}
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << result << endl;
+	cout << "From 0 to 9: " << countTo9 * 1.0 / moves * 100.0 << "%" << endl;
+	cout << "From 10 to 19: " << countTo19 * 1.0 / moves * 100.0 << "%" << endl;
+	cout << "From 20 to 29: " << countTo29 * 1.0 / moves * 100.0 << "%" << endl;
+	cout << "From 30 to 39: " << countTo39 * 1.0 / moves * 100.0 << "%" << endl;
+	cout << "From 40 to 50: " << countTo50 * 1.0 / moves * 100.0 << "%" << endl;
+	cout << "Invalid numbers: " << countInvalid * 1.0 / moves * 100 << "%";
+
+	return 0;
+}
