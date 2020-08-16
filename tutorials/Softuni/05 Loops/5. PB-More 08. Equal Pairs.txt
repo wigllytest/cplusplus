@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+
+
+
+using namespace std;
+
+int main() {
+
+	int input; cin >> input;
+	int sum = 0;
+	int prevSum = 0;
+	int diff = 0;
+	int maxDiff = INT_MIN;
+
+    for (int i = 1; i <= input; i++)
+    {
+        int num1; cin >> num1;
+        int num2; cin >> num2;
+
+        sum = num1 + num2;
+
+        if (i > 1)
+        {
+
+            diff = abs(sum - prevSum);
+        }
+
+        if (diff > maxDiff)
+        {
+            maxDiff = diff;
+        }
+
+        prevSum = sum;
+        sum = 0;
+    }
+    if (maxDiff == 0)
+    {
+        cout << "Yes, value=" << prevSum;
+    }
+    else
+    {
+        cout << "No, maxdiff=" <<  maxDiff;
+    }
+
+	return 0;
+}
