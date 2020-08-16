@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int stadiumSeats; cin >> stadiumSeats;
+	int fansCount; cin >> fansCount;
+	char sector;
+	int sectorA = 0;
+	int sectorB = 0;
+	int sectorV = 0;
+	int sectorG = 0;
+
+	for (int i = 0; i < fansCount; i++)
+	{
+		cin >> sector;
+		if		(sector == 'A') sectorA++;
+		else if (sector == 'B') sectorB++;
+		else if (sector == 'V') sectorV++;
+		else if (sector == 'G') sectorG++;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << sectorA * 1.0 / fansCount * 100.0 << "%" << endl;
+	cout << sectorB * 1.0 / fansCount * 100.0 << "%" << endl;
+	cout << sectorV * 1.0 / fansCount * 100.0 << "%" << endl;
+	cout << sectorG * 1.0 / fansCount * 100.0 << "%" << endl;
+	cout << fansCount * 1.0 / stadiumSeats * 100.0 << "%" << endl;
+
+	return 0;
+}
