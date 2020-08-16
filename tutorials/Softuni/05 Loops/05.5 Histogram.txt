@@ -24,11 +24,11 @@ int main() {
 		int inputNumber;
 		cin >> inputNumber;
 
-		if		(inputNumber < 200)						  numUnderTwo++;
+		if	(inputNumber < 200)			  numUnderTwo++;
 		else if (inputNumber >= 200 && inputNumber < 400) numUnderFour++;
 		else if (inputNumber >= 400 && inputNumber < 600) numUnderSix++;
 		else if (inputNumber >= 600 && inputNumber < 800) numUnderEight++;
-		else if (inputNumber >= 800)					  numAboveEight++;
+		else if (inputNumber >= 800)			  numAboveEight++;
 
 
 	}
