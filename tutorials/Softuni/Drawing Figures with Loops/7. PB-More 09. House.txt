@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int n; cin >> n;
+
+	int stars = 1;
+	if (n % 2 == 0) stars++;
+
+	int roofLength = ceil(n / 2.0);
+
+	for (int i = 0; i < roofLength; i++)
+	{
+		int padding = (n - stars) / 2;
+
+		for (int i = 0; i < padding; i++)
+		{
+			cout << "-";
+		}
+		for (int i = 0; i < stars; i++)
+		{
+			cout << "*";
+		}
+		for (int i = 0; i < padding; i++)
+		{
+			cout << "-";
+		}
+		stars += 2;
+		cout << endl;
+	}
+
+	for (int i = 0; i < n/2; i++)
+	{
+		cout << "|";
+		for (int j= 0; j < n-2; j++)
+		{
+			cout << "*";
+		}
+		cout << "|" << endl;
+
+	}
+
+
+	return 0;
+}
