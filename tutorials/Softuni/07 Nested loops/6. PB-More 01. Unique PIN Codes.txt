@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int upperFirst, upperSecond, upperThird;
+	cin >> upperFirst >> upperSecond >> upperThird;
+
+	for (int first = 2; first <= upperFirst; first++)
+	{
+		for (int second = 2; second <= upperSecond; second++)
+		{
+			for (int third = 2; third <= upperThird; third++)
+			{
+			
+				if (first % 2 == 0 && third % 2 == 0 && (second == 2 || second == 3 || second == 5 || second == 7))
+				{
+				cout << first << " " << second << " " << third << endl;
+				}
+				
+			}
+		}
+	}
+
+	return 0;
+}
