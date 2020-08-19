@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int startNum, endNum, magicNum;
+	cin >> startNum >> endNum >> magicNum;
+	
+	int counter = 0;
+	bool flag = false;
+
+	for (int i = startNum; i < endNum + 1; i++)
+	{
+		for (int j = startNum; j < endNum + 1; j++)
+		{
+			counter++;
+			if (i + j == magicNum)
+			{
+				flag = true;
+				cout << "Combination N:" << counter << " (" << i << " + " << j << " = " << magicNum << ")";
+				break;
+			}
+
+		}
+		if (flag) break;
+
+	}
+
+
+	if (!flag)
+	{
+		cout << counter << " combinations - neither equals " << magicNum;
+	}
+
+	return 0;
+}

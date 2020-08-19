@@ -1,0 +1,30 @@
+#include <iostream>
+
+
+using namespace std;
+
+int main() {
+
+	int coinOne, coinTwo, banknoteFive, total;
+	cin >> coinOne >> coinTwo >> banknoteFive >> total;
+
+	int countOne = 0;
+	int countTwo = 0;
+	int countFive = 0;
+
+	for (int i = 0; i < coinOne + 1; i++)
+	{
+		for (int j = 0; j < coinTwo + 1; j++)
+		{
+			for (int k = 0; k < banknoteFive + 1; k++)
+			{
+				if (i * 1 + j * 2 + k * 5 == total)
+				{
+					cout << i << " * 1 lv. + " << j << " * 2 lv. + " << k << " * 5 lv. = " << total << " lv." << endl;
+				}
+			}
+		}
+	}
+
+	return 0;
+}
