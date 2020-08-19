@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	char lastSector; cin >> lastSector;
+	int rowsFirstSector; cin >> rowsFirstSector;
+	int countOddRowPlaces; cin >> countOddRowPlaces;
+
+	int countEvenRowPlaces = countOddRowPlaces + 2;
+	int oddCount = 0;
+	int evenCount = 0;
+	
+	for (char sector = 'A'; sector <= lastSector; sector++)
+	{
+		rowsFirstSector++; 	//A = rowsFirstSector, B = rowsFirstSector + 1.
+
+		for (int rows = 1; rows < rowsFirstSector; rows++) // i < rowsFirstSector is on purpose because rowsFirstSector++ is first.	
+		{
+			if (rows % 2 == 1)
+			{
+				for (char i = 97; i < 97 + countOddRowPlaces; i++)
+				{
+					char places = i;
+					cout << sector << rows << places << endl;
+					oddCount++;
+				}
+			}
+			else if (rows % 2 == 0)
+			{
+				for (char i = 97; i < 97 + countEvenRowPlaces; i++)
+				{
+					char places = i;
+					cout << sector << rows << places << endl;
+					evenCount++;
+				}
+			}
+
+
+		}
+	}
+	cout << oddCount + evenCount;
+
+	return 0;
+}

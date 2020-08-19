@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+	int menCount, womenCount, maxtables;
+	cin >> menCount >> womenCount >> maxtables;
+	int tableCount = 0;
+	for (int men = 1; men <= menCount; men++)
+	{
+		for (int women = 1; women <= womenCount; women++)
+		{
+			tableCount++;
+			if (tableCount > maxtables) break;
+			else cout << "(" << men << " <-> " << women << ") ";
+			
+			
+		}
+	}
+
+	return 0;
+}
