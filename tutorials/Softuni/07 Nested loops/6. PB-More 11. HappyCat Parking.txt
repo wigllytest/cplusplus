@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int dayCount, hourCount; cin >> dayCount >> hourCount;
+	double hourToll = 0;
+	double dayToll = 0;
+	double totalTall = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	for (int days = 1; days < dayCount+1; days++)
+	{
+		for (int hours = 1; hours < hourCount + 1; hours++)
+		{
+			if		((days % 2 == 0) && (hours % 2 == 1)) hourToll = 2.5;
+			else if ((days % 2 == 1) && (hours % 2 == 0)) hourToll = 1.25;
+
+			else
+			{
+				hourToll = 1;
+			}
+			dayToll += hourToll;
+		}		
+
+		cout << "Day: " << days << " - " << dayToll << " leva" << endl;
+
+		totalTall += dayToll * 1.0;
+		dayToll = 0;
+	}
+	cout << "Total: " << totalTall << " leva";
+
+	return 0;
+}
