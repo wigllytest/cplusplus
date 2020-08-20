@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int startFirstPair, startSecondPair, difStartEndFirstPair, difStartEndSecondPair;
+	cin >> startFirstPair >> startSecondPair >> difStartEndFirstPair >> difStartEndSecondPair;
+
+    for (int first = startFirstPair; first < startFirstPair + difStartEndFirstPair + 1; first++)
+    {
+        for (int second = startSecondPair; second < startSecondPair + difStartEndSecondPair + 1; second++)
+        {
+            bool prime = true; // this is how we find prime numbers. Thanks stackoverflow ;)
+            for (int j = 2; j * j <= first; j++)
+            {
+                if (first % j == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+
+            for (int j = 2; j * j <= second; j++)
+            {
+                if (second % j == 0)
+                {
+                    prime = false;
+                    break;
+                }
+            }
+            if (prime) cout << first << second << endl;
+        }
+
+    }
+
+	return 0;
+}
