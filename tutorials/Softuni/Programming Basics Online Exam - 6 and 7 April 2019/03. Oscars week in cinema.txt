@@ -1,0 +1,85 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	string nameFilm, typeSaloon;
+	int tickets;
+	getline(cin, nameFilm);
+	getline(cin, typeSaloon);
+	cin >> tickets;
+
+	double earnings = 0;
+	double ticketPrice = 0;
+
+	if (nameFilm == "A Star Is Born")
+	{
+		if (typeSaloon == "normal")
+		{
+			ticketPrice = 7.5;
+		}
+		else if (typeSaloon == "luxury")
+		{
+			ticketPrice = 10.5;
+		}
+		else if (typeSaloon == "ultra luxury")
+		{
+			ticketPrice = 13.5;
+		}
+	}
+	else if (nameFilm == "Bohemian Rhapsody")
+	{
+		if (typeSaloon == "normal")
+		{
+			ticketPrice = 7.35;
+		}
+		else if (typeSaloon == "luxury")
+		{
+			ticketPrice = 9.45;
+		}
+		else if (typeSaloon == "ultra luxury")
+		{
+			ticketPrice = 12.75;
+		}
+	}
+	else if (nameFilm == "Green Book")
+	{
+		if (typeSaloon == "normal")
+		{
+			ticketPrice = 8.15;
+		}
+		else if (typeSaloon == "luxury")
+		{
+			ticketPrice = 10.25;
+		}
+		else if (typeSaloon == "ultra luxury")
+		{
+			ticketPrice = 13.25;
+		}
+	}
+	else if (nameFilm == "The Favourite")
+	{
+		if (typeSaloon == "normal")
+		{
+			ticketPrice = 8.75;
+		}
+		else if (typeSaloon == "luxury")
+		{
+			ticketPrice = 11.55;
+		}
+		else if (typeSaloon == "ultra luxury")
+		{
+			ticketPrice = 13.95;
+		}
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	earnings = ticketPrice * tickets;
+	cout << nameFilm << " -> " << earnings << " lv.";
+
+	return 0;
+}
