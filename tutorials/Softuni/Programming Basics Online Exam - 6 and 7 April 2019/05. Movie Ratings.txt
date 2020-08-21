@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <climits>
+
+using namespace std;
+
+int main() {
+
+	int movieCount; cin >> movieCount;
+	string movieName;
+	double movieRating;
+
+	double maxRating = -1;
+	double minRating = 11;
+	string maxMovie = "";
+	string minMovie = "";
+	double averageRating = 0;
+	double ratingSum = 0;
+
+	for (int i = 0; i < movieCount; i++)
+	{
+		cin.ignore();
+		getline(cin, movieName);
+		//cin.ignore();
+		cin >> movieRating;
+		ratingSum += movieRating;
+		if (movieRating > maxRating)
+		{
+			maxRating = movieRating;
+			maxMovie = movieName;
+		}
+		else if (movieRating < minRating)
+		{
+			minRating = movieRating;
+			minMovie = movieName;
+
+		}
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(1);
+
+	averageRating = ratingSum / movieCount;
+	cout << maxMovie << " is with highest rating: " << maxRating << endl;
+	cout << minMovie << " is with lowest rating: " << minRating << endl;
+	cout << "Average rating: " << averageRating;
+
+	return 0;
+}
