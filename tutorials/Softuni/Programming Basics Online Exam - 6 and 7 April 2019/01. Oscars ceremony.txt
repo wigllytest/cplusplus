@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int rent; cin >> rent;
+
+	double totalExp = 0;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	totalExp = rent + (rent * 0.7) + ((rent * 0.7) * 0.85) + ((rent * 0.7) * 0.85) * 0.5;
+	cout << totalExp;
+
+	return 0;
+}
