@@ -10,7 +10,7 @@ int main() {
 	string movieName;
 	double movieRating;
 
-	double maxRating = -1;
+	double maxRating = -1; // Judge do not accept DBL_MIN/MAX.
 	double minRating = 11;
 	string maxMovie = "";
 	string minMovie = "";
