@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	int voucher; cin >> voucher;
+	string purchase;
+
+	cin.ignore();
+	getline(cin, purchase);
+
+	int countTickets = 0;
+	int countOthers = 0;
+	int price = 0;
+
+	while (purchase != "End")
+	{
+		if (purchase.size() > 8)
+		{
+			price = int(purchase[0]) + int(purchase[1]);
+			
+			if (voucher >= price) voucher -= price;
+			else break;
+
+			countTickets++;
+		}
+		else if (purchase.size() <= 8)
+		{
+			price = int(purchase[0]);
+	
+			if (voucher >= price) voucher -= price;
+			else break;
+
+			countOthers++;
+		}
+
+		getline(cin, purchase);
+	}
+
+	cout << countTickets << endl;
+	cout << countOthers << endl;
+
+	return 0;
+}
