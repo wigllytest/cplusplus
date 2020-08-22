@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	int firstEggs, secondEggs; cin >> firstEggs >> secondEggs;
+	string winner; 
+	cin.ignore();
+	getline (cin, winner);
+
+
+	while (winner != "End of battle")
+	{
+		if (winner == "one") secondEggs--;
+		else if (winner == "two") firstEggs--;
+
+		if (firstEggs == 0 || secondEggs == 0) break;
+
+		//cin.ignore();
+		getline(cin, winner);
+	}
+
+	if (firstEggs == 0)
+	{
+		cout << "Player one is out of eggs. Player two has " << secondEggs << " eggs left.";
+	}
+	else if (secondEggs == 0)
+	{
+		cout << "Player two is out of eggs. Player one has " << firstEggs << " eggs left.";
+	}
+	else if (winner == "End of battle")
+	{
+		cout << "Player one has " << firstEggs << " eggs left." << endl;
+		cout << "Player two has " << secondEggs << " eggs left." << endl;
+	}
+
+
+	return 0;
+}

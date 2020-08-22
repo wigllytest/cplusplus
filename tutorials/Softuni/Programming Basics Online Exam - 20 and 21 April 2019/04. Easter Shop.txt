@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int eggs; cin >> eggs;
+	string action;
+	int eggNum;
+	cin >> action >> eggNum;
+	//int currentEggs = 0;
+	int soldEggs = 0;
+
+	while (action != "Close")
+	{
+
+		if (action == "Buy")
+		{
+			if (eggs >= eggNum)
+			{
+				eggs -= eggNum;
+				soldEggs += eggNum;
+			}
+			else if (eggs < eggNum) break;
+		}
+		else if (action == "Fill") eggs += eggNum;
+		
+		cin >> action;
+		if (action == "Close") break;
+		else cin >> eggNum;
+
+	}
+
+	if (action == "Close") 
+	{
+		cout << "Store is closed!" << endl;
+		cout << soldEggs << " eggs sold.";
+	}
+	else if (eggs < eggNum)
+	{
+		cout << "Not enough eggs in store!" << endl;
+		cout << "You can buy only " << eggs << ".";
+	}
+
+	return 0;
+}

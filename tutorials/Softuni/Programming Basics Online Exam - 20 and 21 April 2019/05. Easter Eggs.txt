@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int coloredEggs; cin >> coloredEggs;
+	string color;
+
+	int redCount = 0;
+	int orangeCount = 0;
+	int blueCount = 0;
+	int greenCount = 0;
+	int maxCount = 0;
+	string maxColor = "";
+
+	for (int i = 0; i < coloredEggs; i++)
+	{
+		cin >> color;
+		if 	(color == "red")    redCount++;
+		else if (color == "orange") orangeCount++;
+		else if (color == "blue")   blueCount++;
+		else if (color == "green")  greenCount++;
+	}
+
+	if (maxCount < redCount)
+	{
+		maxCount = redCount;
+		maxColor = "red";
+	}
+	if (maxCount < orangeCount)
+	{
+		maxCount = orangeCount;
+		maxColor = "orange";
+	}
+	if (maxCount < blueCount)
+	{
+		maxCount = blueCount;
+		maxColor = "blue";
+	}
+	if (maxCount < greenCount)
+	{
+		maxCount = greenCount;
+		maxColor = "green";
+	}
+
+	cout << "Red eggs: " << redCount << endl;
+	cout << "Orange eggs: " << orangeCount << endl;
+	cout << "Blue eggs: " << blueCount << endl;
+	cout << "Green eggs: " << greenCount << endl;
+	cout << "Max eggs: " << maxCount << " -> " << maxColor;
+
+	return 0;
+}
