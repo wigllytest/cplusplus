@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	
+	int easterBread; cin >> easterBread;
+	string baker;
+	string action;
+	int countPoints = 0;
+	int maxPoints = 0;
+	string maxBaker = "";
+	int bestBaker = 0;
+	cin.ignore();
+
+	for (int i = 0; i < easterBread; i++)
+	{
+		
+		getline(cin, baker);
+		getline(cin, action);
+
+		while (action != "Stop")
+		{
+			int points = stoi(action);
+			countPoints += points;
+			getline(cin, action);
+		}
+
+		if (maxPoints < countPoints)
+		{
+			maxPoints = countPoints;
+			maxBaker = baker;
+		}
+		cout << baker << " has " << countPoints << " points." << endl;
+		
+		if (bestBaker < maxPoints)
+		{
+			bestBaker = maxPoints;
+			cout << baker << " is the new number 1!" << endl;
+		}
+		countPoints = 0;
+	}
+	
+	cout << maxBaker << " won competition with " << maxPoints << " points!";
+
+	return 0;
+}

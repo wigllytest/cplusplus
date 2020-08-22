@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int easterBread; cin >> easterBread;
+	int sugar, flour;
+	int totalSugar = 0;
+	int totalFlour = 0;
+	int maxSugar = 0;
+	int maxFlour = 0;
+	int sugarPacks = 0;
+	int flourPack = 0;
+
+	for (int i = 0; i < easterBread; i++)
+	{
+		cin >> sugar >> flour;
+
+		if (maxSugar < sugar) maxSugar = sugar;
+
+		if (maxFlour < flour) maxFlour = flour;
+
+		totalSugar += sugar;
+		totalFlour += flour;
+	}
+	sugarPacks = ceil(totalSugar * 1.0 / 950);
+	flourPack = ceil(totalFlour * 1.0 / 750);
+
+	cout << "Sugar: " << sugarPacks << endl;
+	cout << "Flour: " << flourPack << endl;
+	cout << "Max used flour is " << maxFlour << " grams, max used sugar is " << maxSugar << " grams.";
+
+	return 0;
+}
