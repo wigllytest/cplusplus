@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int guestCount, budget; cin >> guestCount >> budget;
+
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	double totalCost = 0;
+	int easterBread = 0;
+	int eggs = 0;
+
+	easterBread = ceil(guestCount*1.0 / 3.0);
+	//if (guestCount % 3 == 1)
+	//{
+	//	easterBread++;
+	//}
+	eggs = guestCount * 2;
+	int priceBread = easterBread * 4;
+	double eggPrice = eggs * 0.45;
+	totalCost = priceBread + eggPrice;
+	double moneyLeft = budget - totalCost;
+	double moneyNeed = totalCost - budget;
+
+	if (budget >= totalCost)
+	{
+		cout << "Lyubo bought " << easterBread << " Easter bread and " << eggs << " eggs." << endl;
+		cout << "He has " << moneyLeft << " lv. left.";
+	}
+	else if (budget < totalCost)
+	{
+		cout << "Lyubo doesn't have enough money." << endl;
+		cout << "He needs " << moneyNeed << " lv. more.";
+	}
+
+	return 0;
+}
