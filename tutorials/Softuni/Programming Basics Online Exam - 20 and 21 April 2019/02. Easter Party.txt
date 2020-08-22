@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int guestCount; cin >> guestCount;
+	double pricePerson, budget; cin >> pricePerson >> budget;
+
+	double totalCost = 0;
+
+	if (guestCount > 9 && guestCount < 16)
+	{
+		pricePerson = pricePerson * 0.85;
+	}
+	else if (guestCount > 14 && guestCount < 21)
+	{
+		pricePerson = pricePerson * 0.8;
+	}
+	else if (guestCount > 20)
+	{
+		pricePerson = pricePerson * 0.75;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	totalCost = guestCount * pricePerson + budget * 0.1;
+
+	if		(budget >= totalCost) cout << "It is party time! " << budget - totalCost << " leva left.";
+	else if (budget < totalCost)  cout << "No party! " << totalCost - budget << " leva needed.";
+
+	return 0;
+}

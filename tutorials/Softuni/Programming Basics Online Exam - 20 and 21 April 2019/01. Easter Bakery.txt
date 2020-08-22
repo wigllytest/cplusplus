@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double flourPrice, flourKg, sugarKg;
+	int eggCarton, yeast;
+	double totalExp = 0;
+	cin >> flourPrice >> flourKg >> sugarKg >> eggCarton >> yeast;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	totalExp = (flourKg * flourPrice) + (sugarKg * flourPrice * 0.75) + (eggCarton * 1.1 * flourPrice) + (yeast * 0.2 * flourPrice * 0.75);
+	cout << totalExp;
+
+	return 0;
+}
