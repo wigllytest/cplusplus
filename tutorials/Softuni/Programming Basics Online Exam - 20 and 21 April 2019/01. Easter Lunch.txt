@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int sweetBreadCount, eggsCount, cookiesKg;
+	cin >> sweetBreadCount >> eggsCount >> cookiesKg;
+	double totalExp = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalExp = sweetBreadCount * 3.2 + eggsCount * 4.35 + cookiesKg * 5.4 + eggsCount * 12 * 0.15;
+
+	cout << totalExp;
+
+	return 0;
+}
