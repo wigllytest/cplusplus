@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int yearTax; cin >> yearTax;
+	double totalExp = 0;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	
+	double basketShoes = yearTax * 0.6;
+	double basketClothes = basketShoes * 0.8;
+	double basketBall = basketClothes * 0.25;
+	double basketAcc = basketBall * 0.2;
+
+	totalExp = yearTax + basketShoes + basketClothes + basketBall + basketAcc;
+	cout << totalExp;
+	return 0;
+}

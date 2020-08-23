@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	double racketPrice;
+	int racketCount, sneakersCount;
+	cin >> racketPrice >> racketCount >> sneakersCount;
+
+	
+	double totalRacketPrice = racketCount * racketPrice;
+	double sneakerPrice = racketPrice / 6;
+	double totalSneakersPrice = sneakerPrice * sneakersCount;
+	double otherEquipment = 0.2 * (totalRacketPrice + totalSneakersPrice);
+	double allEquipment = otherEquipment + totalRacketPrice + totalSneakersPrice;
+	double priceDjoko = floor (allEquipment / 8);
+	double priceSponsor = ceil (allEquipment * 7 / 8);
+
+	cout.setf(ios::fixed);
+	cout.precision(0);
+
+	cout << "Price to be paid by Djokovic " << priceDjoko << endl;
+	cout << "Price to be paid by sponsors " << priceSponsor;
+
+	return 0;
+}
