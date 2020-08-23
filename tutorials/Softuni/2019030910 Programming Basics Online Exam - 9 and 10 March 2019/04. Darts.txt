@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+	string playerName;
+	getline(cin, playerName);
+
+	string field, points;
+	getline(cin, field);
+	getline(cin, points);
+
+	int playerPoints = 301;
+	int invalidPoints = 0;
+	int shotsCount = 0;
+
+	while (field != "Retire")
+	{
+		int dartPoint = stoi(points);
+		if (field == "Single")
+		{
+			dartPoint = dartPoint;
+			if (playerPoints - dartPoint < 0)
+			{
+				dartPoint = 0;
+				invalidPoints++;
+			}
+			else if (playerPoints - dartPoint >= 0)
+			{
+				shotsCount++;
+				playerPoints = playerPoints - dartPoint;
+			}
+
+			if (playerPoints == 0) break;
+
+		}
+		else if (field == "Double")
+		{
+			dartPoint = 2 * dartPoint;
+			if (playerPoints - dartPoint < 0)
+			{
+				dartPoint = 0;
+				invalidPoints++;
+			}
+			else if (playerPoints - dartPoint >= 0)
+			{
+				shotsCount++;
+				playerPoints = playerPoints - dartPoint;
+			}
+			if (playerPoints == 0) break;
+		}
+		else if (field == "Triple")
+		{
+			dartPoint = 3 * dartPoint;
+			if (playerPoints - dartPoint < 0)
+			{
+				dartPoint = 0;
+				invalidPoints++;
+			}
+			else if (playerPoints - dartPoint >= 0)
+			{
+				shotsCount++;
+				playerPoints = playerPoints - dartPoint;
+			}
+			if (playerPoints == 0) break;
+		}
+
+		getline(cin, field);
+		getline(cin, points);
+	}
+
+	if (playerPoints == 0)
+	{
+		cout << playerName << " won the leg with " << shotsCount << " shots.";
+	}
+	else
+	{
+		cout << playerName << " retired after " << invalidPoints << " unsuccessful shots.";
+	}
+
+	return 0;
+}

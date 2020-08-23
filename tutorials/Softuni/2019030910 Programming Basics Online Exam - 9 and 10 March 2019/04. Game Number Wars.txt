@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+
+	string firstPlayer, secondPlayer;
+	cin >> firstPlayer >> secondPlayer;
+	string cardOne, cardTwo;
+	cin.ignore();
+	getline(cin, cardOne);
+	getline(cin, cardTwo);
+	int playerOneCount = 0;
+	int playerTwoCount = 0;
+	int diffCard = 0;
+	bool firstWin = false;
+	bool secondWin = false;
+
+
+	while (cardOne != "End of game")
+	{
+		int firstCard = stoi(cardOne);
+		int secondCard = stoi(cardTwo);
+		if (firstCard > secondCard) 
+		{
+			diffCard = firstCard - secondCard;
+			playerOneCount += diffCard;
+		}
+		else if (firstCard < secondCard)
+		{
+			diffCard = secondCard - firstCard;
+			playerTwoCount += diffCard;
+		}
+		else if (firstCard == secondCard)
+		{
+			cin >> firstCard >> secondCard;
+			if (firstCard > secondCard)
+			{
+				firstWin = true;
+				break;
+			}
+			else if (firstCard < secondCard)
+			{
+				secondWin = true;
+				break;
+			}
+		}
+		getline(cin, cardOne);
+		getline(cin, cardTwo);
+	}	
+
+	if (firstWin)
+	{
+		cout << "Number wars!" << endl;
+		cout << firstPlayer << " is winner with " << playerOneCount << " points";
+	}
+	else if (secondWin)
+	{
+		cout << "Number wars!" << endl;
+		cout << secondPlayer << " is winner with " << playerTwoCount << " points";
+	}
+
+	if (cardOne == "End of game")
+	{
+		cout << firstPlayer << " has " << playerOneCount << " points" << endl;
+		cout << secondPlayer << " has " << playerTwoCount << " points" << endl;
+	}
+
+
+
+	return 0;
+}
