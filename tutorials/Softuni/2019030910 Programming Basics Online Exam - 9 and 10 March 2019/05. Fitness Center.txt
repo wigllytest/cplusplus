@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+	int bodybuilders; cin >> bodybuilders;
+	cin.ignore();
+	string action;
+	int backCounter = 0;
+	int chestCounter = 0;
+	int legsCounter = 0;
+	int absCounter = 0;
+	int shakeCounter = 0;
+	int barCounter = 0;
+	double percentTraining = 0;
+	double percentBying = 0;
+
+	for (int i = 0; i < bodybuilders; i++)
+	{
+		getline(cin, action);
+		if (action == "Back") backCounter++;
+		else if (action == "Chest") chestCounter++;
+		else if (action == "Legs") legsCounter++;
+		else if (action == "Abs") absCounter++;
+		else if (action == "Protein shake") shakeCounter++;
+		else if (action == "Protein bar") barCounter++;
+	}
+	cout << backCounter << " - back" << endl;
+	cout << chestCounter << " - chest" << endl;
+	cout << legsCounter << " - legs" << endl;
+	cout << absCounter << " - abs" << endl;
+	cout << shakeCounter << " - protein shake" << endl;
+	cout << barCounter << " - protein bar" << endl;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	percentTraining = (backCounter * 1.0 + chestCounter + legsCounter + absCounter) * 1.0 / bodybuilders * 100.0;
+	percentBying = (shakeCounter * 1.0 + barCounter) * 1.0 / bodybuilders * 100.0;
+	
+	cout << percentTraining << "% - work out" << endl;
+	cout << percentBying << "% - protein";
+
+	return 0;
+}

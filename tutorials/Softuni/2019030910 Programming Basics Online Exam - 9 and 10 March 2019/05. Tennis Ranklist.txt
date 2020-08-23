@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int tourCount, tourPoints;
+	string stage;
+	cin >> tourCount >> tourPoints;
+	int earnPoints = 0;
+	int winCount = 0;
+
+	for (int i = 0; i < tourCount; i++)
+	{
+		cin >> stage;
+		if (stage == "W") 
+		{
+			tourPoints += 2000;
+			earnPoints += 2000;
+			winCount++;
+		}
+		else if (stage == "F")
+		{
+			tourPoints += 1200;
+			earnPoints += 1200;
+		}
+		else if (stage == "SF")
+		{
+			tourPoints += 720;
+			earnPoints += 720;
+		}
+	}
+	
+	double averagePoints = floor(earnPoints * 1.0 / tourCount);
+	cout << "Final points: " << tourPoints << endl;
+	cout << "Average points: " << averagePoints << endl;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	double percent = winCount * 1.0 / tourCount * 100.0;
+	cout << percent << "%";
+
+
+	return 0;
+}
