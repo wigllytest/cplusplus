@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	int clients; cin >> clients;
+	string purchase;
+	cin.ignore();
+
+	double totalExp = 0;
+	int purchaseCounter = 0;
+	double averagePurchase = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	for (int i = 1; i < clients + 1; i++)
+	{
+		getline(cin, purchase);
+		while (purchase != "Finish")
+		{
+			if		(purchase == "basket")          totalExp += 1.5;
+			else if (purchase == "wreath")          totalExp += 3.8;
+			else if (purchase == "chocolate bunny") totalExp += 7;
+
+			purchaseCounter++;
+			getline(cin, purchase);
+		}
+		if (purchaseCounter % 2 == 0) totalExp = totalExp * 0.8;
+		averagePurchase += totalExp;
+
+		cout << "You purchased " << purchaseCounter << " items for " << totalExp << " leva." << endl;
+		purchaseCounter = 0;
+		totalExp = 0;
+	}
+
+	cout << "Average bill per client is: " << averagePurchase / clients << " leva.";
+
+	return 0;
+}
