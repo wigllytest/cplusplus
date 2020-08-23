@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	string country, gymAction;
+	cin >> country >> gymAction;
+
+	double hardness = 0;
+	double execution = 0;
+	double allGrade = 0;
+	double percentToMax = 0;
+
+	if (country == "Russia")
+	{
+		if (gymAction == "ribbon")
+		{
+			hardness = 9.100;
+			execution = 9.400;
+		}
+		else if (gymAction == "hoop")
+		{
+			hardness = 9.300;
+			execution = 9.800;
+		}
+		else if (gymAction == "rope")
+		{
+			hardness = 9.600;
+			execution = 9.000;
+		}
+	}
+	else if (country == "Bulgaria")
+	{
+		if (gymAction == "ribbon")
+		{
+			hardness = 9.600;
+			execution = 9.400;
+		}
+		else if (gymAction == "hoop")
+		{
+			hardness = 9.550;
+			execution = 9.750;
+		}
+		else if (gymAction == "rope")
+		{
+			hardness = 9.500;
+			execution = 9.400;
+		}
+	}
+	else if (country == "Italy")
+	{
+		if (gymAction == "ribbon")
+		{
+			hardness = 9.200;
+			execution = 9.500;
+		}
+		else if (gymAction == "hoop")
+		{
+			hardness = 9.450;
+			execution = 9.350;
+		}
+		else if (gymAction == "rope")
+		{
+			hardness = 9.700;
+			execution = 9.150;
+		}
+	}
+	cout.setf(ios::fixed);
+	cout.precision(3);
+	allGrade = hardness + execution;
+
+	cout << "The team of " << country << " get " << allGrade << " on " << gymAction << "." << endl;
+	
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	percentToMax = 100 - (allGrade / 20 * 100);	
+	cout << percentToMax << "%";
+		 
+	return 0;
+}

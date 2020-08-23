@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+	string firstMatch, secondMatch, thirdMatch;
+	cin >> firstMatch >> secondMatch >> thirdMatch;
+
+	int wonCount = 0;
+	int lossCount = 0;
+	int drawCount = 0;
+	//int firstResult = stoi(firstMatch);
+
+	if		(int(firstMatch[0]) > int(firstMatch[2])) wonCount++;
+	else if (int(firstMatch[0]) < int(firstMatch[2])) lossCount++;
+	else if (int(firstMatch[0]) == int(firstMatch[2])) drawCount++;
+
+	if		(int(secondMatch[0]) > int(secondMatch[2])) wonCount++;
+	else if (int(secondMatch[0]) < int(secondMatch[2])) lossCount++;
+	else if (int(secondMatch[0]) == int(secondMatch[2])) drawCount++;
+
+	if		(int(thirdMatch[0]) > int(thirdMatch[2])) wonCount++;
+	else if (int(thirdMatch[0]) < int(thirdMatch[2])) lossCount++;
+	else if (int(thirdMatch[0]) == int(thirdMatch[2])) drawCount++;
+
+	cout << "Team won " << wonCount << " games." << endl;
+	cout << "Team lost " << lossCount << " games." << endl;
+	cout << "Drawn games: " << drawCount;
+
+	return 0;
+}

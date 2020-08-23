@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+
+	int controlMin, controlSec, hundredMetPerSec;
+	double longMeters;
+
+	cin >> controlMin >> controlSec >> longMeters >> hundredMetPerSec;
+
+	cout.setf(ios::fixed);
+	cout.precision(3);
+	int totalControlsSec = controlMin * 60 + controlSec;
+	double slide = longMeters / 120;
+	double slideTime = slide * 2.5;
+	double runForSecond = 100 * 1.0 / hundredMetPerSec;
+	double marinTime = (longMeters / runForSecond) - slideTime;
+	double needSec = marinTime - totalControlsSec;
+	if (marinTime <= totalControlsSec)
+	{
+		cout << "Marin Bangiev won an Olympic quota!" << endl;
+		cout << "His time is " << marinTime << ".";
+	}
+	else if (marinTime > totalControlsSec)
+	{
+		cout << "No, Marin failed! He was " << needSec << " second slower.";
+	}
+	return 0;
+}

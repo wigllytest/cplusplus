@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+int main() {
+
+	string typeTournament, ticketType;
+	int ticketCount;
+	char picTrophy;
+	getline(cin, typeTournament);
+	cin >> ticketType >> ticketCount >> picTrophy;
+
+	double ticketPrice = 0;
+	double totalExp = 0;
+	double exp = 0;
+	int picPrice = 40;
+
+	if (typeTournament == "Quarter final")
+	{
+		if		(ticketType == "Standard") ticketPrice = 55.50;
+		else if (ticketType == "Premium")  ticketPrice = 105.20;
+		else if (ticketType == "VIP")      ticketPrice = 118.90;
+	}
+	else if (typeTournament == "Semi final")
+	{
+		if		(ticketType == "Standard") ticketPrice = 75.88;
+		else if (ticketType == "Premium")  ticketPrice = 125.22;
+		else if (ticketType == "VIP")      ticketPrice = 300.40;
+	}
+	else if (typeTournament == "Final")
+	{
+		if		(ticketType == "Standard") ticketPrice = 110.10;
+		else if (ticketType == "Premium")  ticketPrice = 160.66;
+		else if (ticketType == "VIP")      ticketPrice = 400;
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	exp = ticketPrice * ticketCount;
+	if (exp > 4000)
+	{
+		if (picTrophy == 'Y')
+		{
+			totalExp = exp * 0.75;
+		}
+		else if (picTrophy == 'N')
+		{
+			totalExp = exp * 0.75;
+		}
+	}
+	else if (exp > 2500 && exp <= 4000)
+	{
+		if (picTrophy == 'Y')
+		{
+			totalExp = exp * 0.9;
+			totalExp += ticketCount * 40.0;
+		}
+		else if (picTrophy == 'N')
+		{
+			totalExp = exp * 0.9;
+		} 
+	}
+
+	else if (exp > 0 && exp <= 2500)
+	{
+		if (picTrophy == 'Y')
+		{
+			totalExp = exp;
+			totalExp += ticketCount * 40.0;
+		}
+		else if (picTrophy == 'N')
+		{
+			totalExp = exp;
+		}
+	}
+	cout << totalExp;
+
+	return 0;
+}
