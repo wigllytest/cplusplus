@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() 
+{
+	string tourName;
+	getline(cin, tourName);
+	int games;
+	int playerOne, playerTwo;
+	int matchCount = 0;
+	int winPoints = 0;
+	int lossPoints = 0;
+	int totalWins = 0;
+	int totalLosses = 0;
+	int totalMatches = 0;
+	double percentWins = 0;
+	double percentLosses = 0;
+
+	while (tourName != "End of tournaments")
+	{		
+		cin >> games;
+		for (int i = 0; i < games; i++)
+		{
+			totalMatches++;
+			matchCount++;
+			cin >> playerOne >> playerTwo;
+			if (playerOne > playerTwo)
+			{
+				totalWins++;
+				winPoints = playerOne - playerTwo;
+				cout << "Game " << matchCount << " of tournament " << tourName << ": win with " << winPoints << " points." << endl;
+			}
+			else if (playerOne < playerTwo)
+			{
+				totalLosses++;
+				lossPoints = playerTwo - playerOne;
+				cout << "Game " << matchCount << " of tournament " << tourName << ": lost with " << lossPoints << " points." << endl;
+			}
+		}
+		matchCount = 0;
+		cin.ignore();
+		getline(cin, tourName);
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	percentWins = totalWins * 1.0 / totalMatches * 100.0;
+	percentLosses = totalLosses * 1.0 / totalMatches * 100.0;
+	cout << percentWins << "% matches win" << endl;
+	cout << percentLosses << "% matches lost" << endl;
+
+
+	return 0;
+}
