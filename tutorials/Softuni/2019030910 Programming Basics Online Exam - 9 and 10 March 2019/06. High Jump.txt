@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    int jumpHeight; cin >> jumpHeight;
+    int currentHeight;
+
+    int startHeight = jumpHeight - 30;
+    int failedJump = 0;
+    int countJump = 0;
+    bool stop = false;
+
+    for (int stepHeight = startHeight; stepHeight <= jumpHeight; stepHeight += 5)
+    {
+        for (int i = 1; i <= 3; i++)
+        {
+
+            cin >> currentHeight;
+
+            if (currentHeight > stepHeight) {
+                if (currentHeight > jumpHeight) stop = true;
+
+                countJump++;
+                failedJump = 0;
+                break;
+            }
+            else {
+                countJump++;
+                failedJump++;
+            }
+        }
+
+        if (failedJump == 3) {
+            cout << "Tihomir failed at " << currentHeight << "cm after " << countJump << " jumps.";
+            break;
+
+        }
+    }
+    if (stop)
+    {
+        cout << "Tihomir succeeded, he jumped over " << jumpHeight << "cm after " << countJump << " jumps.";
+    }
+
+    return 0;
+}
