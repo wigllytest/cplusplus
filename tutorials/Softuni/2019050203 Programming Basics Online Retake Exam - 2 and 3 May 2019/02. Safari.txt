@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	double budget; cin >> budget;
+	double fuel; cin >> fuel;
+	string weekDay; cin >> weekDay;
+
+	double totalExp = 0;
+	double leftMoney = 0;
+	double needMoney;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalExp = fuel * 2.10 + 100.0;
+	if		(weekDay == "Saturday") totalExp = totalExp * 0.9;
+	else if (weekDay == "Sunday")	totalExp = totalExp * 0.8;
+
+	leftMoney = budget - totalExp;
+	needMoney = totalExp - budget;
+	if (budget >= totalExp)
+	{
+		cout << "Safari time! Money left: " << leftMoney << " lv.";
+	}
+	else if (budget < totalExp)
+	{
+		cout << "Not enough money! Money needed: " << needMoney << " lv.";
+	}
+	return 0;
+}

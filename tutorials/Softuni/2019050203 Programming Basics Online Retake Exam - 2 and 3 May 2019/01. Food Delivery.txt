@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int chickenMenu, fishMenu, vegMenu;
+	cin >> chickenMenu >> fishMenu >> vegMenu;
+	double total = 0;
+	double desert = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	desert = ((chickenMenu * 10.35) + (fishMenu * 12.40) + (vegMenu * 8.15)) * 0.20;
+	total = (chickenMenu * 10.35) + (fishMenu * 12.40) + (vegMenu * 8.15) + desert + 2.5;
+
+	cout << "Total: " << total;
+	return 0;
+}
