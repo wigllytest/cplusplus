@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	double budget; cin >> budget;
+
+	string product;
+	double priceProduct;
+	cin.ignore();
+
+	getline(cin, product);
+	
+	int productCounter = 0;
+	double totalPrice = 0;
+	double neededMoney = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+
+	while (product != "Stop")
+	{
+		cin >> priceProduct;
+
+		productCounter++;
+		if (productCounter % 3 == 0;)
+		{
+			priceProduct = priceProduct * 0.5;
+		}
+		totalPrice += priceProduct;
+		if (budget >= priceProduct)
+		{
+			budget -= priceProduct;
+		}
+		else if (budget < priceProduct)
+		{
+			break;
+		}
+		cin.ignore();
+
+		getline(cin, product);
+		
+
+	}
+	if (product == "Stop")
+	{
+		cout << "You bought " << productCounter << " products for " << totalPrice << " leva.";
+	}
+	else if (budget < priceProduct)
+	{
+		neededMoney = priceProduct - budget;
+		cout << "You don't have enough money!" << endl;
+		cout << "You need " << neededMoney << " leva!";
+	}
+
+
+
+
+	return 0;
+}
