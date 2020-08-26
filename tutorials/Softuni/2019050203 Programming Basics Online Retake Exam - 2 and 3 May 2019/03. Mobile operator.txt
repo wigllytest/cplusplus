@@ -1,0 +1,120 @@
+#include <iostream>
+
+using namespace std;
+int main() {
+
+	string date, type, mobInet; cin >> date >> type >> mobInet;
+	int months; cin >> months;
+	double totalPaid = 0;
+	double payMonth = 0;
+
+	if (date == "one")
+	{
+		if (type == "Small")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 9.98 + 5.5;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 9.98;
+			}
+		}
+		else if (type == "Middle")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 18.99 + 4.35;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 18.99;
+			}
+		}
+		else if (type == "Large")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 25.98 + 4.35;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 25.98;
+			}
+		}
+		else if (type == "ExtraLarge")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 35.99 + 3.85;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 35.99;
+			}
+		}
+	}
+	else if (date == "two")
+	{
+		if (type == "Small")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 8.58 + 5.5;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 8.58;
+			}
+		}
+		else if (type == "Middle")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 17.09 + 4.35;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 17.09;
+			}
+		}
+		else if (type == "Large")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 23.59 + 4.35;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 23.59;
+			}
+		}
+		else if (type == "ExtraLarge")
+		{
+			if (mobInet == "yes")
+			{
+				payMonth = 31.79 + 3.85;
+			}
+			else if (mobInet == "no")
+			{
+				payMonth = 31.79;
+			}
+		}
+	}
+
+	if (date == "one")
+	{
+		totalPaid = months * payMonth;
+	}
+	else if (date == "two")
+	{
+		totalPaid = months * payMonth * 0.9625;
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << totalPaid << " lv.";
+
+	return 0;
+}
