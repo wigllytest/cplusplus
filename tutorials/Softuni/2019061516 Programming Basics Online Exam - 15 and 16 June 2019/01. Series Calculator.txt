@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+
+	string name;
+	int numSeason;
+	int numEpisodes;
+	double timeEpisode;
+	getline(cin, name);
+	cin >> numSeason >> numEpisodes >> timeEpisode;
+
+	double totalTime = numSeason * 1.0 * numEpisodes * timeEpisode * 1.2 + numSeason * 10;
+
+	cout << "Total time needed to watch the " << name << " series is " << totalTime << " minutes.";
+
+	return 0;
+}
