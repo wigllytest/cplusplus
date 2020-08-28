@@ -1,0 +1,54 @@
+	#include <iostream>
+	#include <string>
+	#include <cmath>
+
+	using namespace std;
+
+	int main()
+	{
+		double budget; cin >> budget;
+		cin.ignore();
+		string command;
+		getline(cin, command);
+		double salary;
+
+		while (command != "ACTION")
+		{		
+			if (command.length() > 15)
+			{
+				
+				salary = budget * 0.2;
+			}
+			else if (command.length() <= 15)
+			{
+				cin >> salary;
+				
+			}
+
+			budget -= salary;
+			if (budget <= 0) break;
+			
+			if (command.length() > 15)
+			{
+				getline(cin, command);
+			}
+			else if (command.length() <= 15)
+			{
+				cin.ignore();
+				getline(cin, command);
+			}
+
+			
+		}
+		cout.setf(ios::fixed);
+		cout.precision(2);
+		if (budget >= 0)
+		{
+			cout << "We are left with " << budget << " leva.";
+		}
+		else if (budget < 0)
+		{
+			cout << "We need " << abs(budget) << " leva for our actors.";
+		}
+		return 0;
+	}
