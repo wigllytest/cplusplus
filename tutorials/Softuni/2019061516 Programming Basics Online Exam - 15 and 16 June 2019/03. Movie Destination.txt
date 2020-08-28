@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	double budget; cin >> budget;
+	string destination; cin >> destination;
+	string season; cin >> season;
+	int days; cin >> days;
+
+	int priceDay = 0;
+	double totalExp = 0;
+	double leftMoney = 0;
+	double neededMoney = 0;
+
+	if (destination == "Dubai")
+	{
+		if (season == "Winter")
+		{
+			priceDay = 45000;
+		}
+		else if (season == "Summer")
+		{
+			priceDay = 40000;
+
+		}
+	}
+	else if (destination == "Sofia")
+	{
+		if (season == "Winter")
+		{
+			priceDay = 17000;
+		}
+		else if (season == "Summer")
+		{
+			priceDay = 12500;
+
+		}
+	}
+	else if (destination == "London")
+	{
+		if (season == "Winter")
+		{
+			priceDay = 24000;
+		}
+		else if (season == "Summer")
+		{
+			priceDay = 20250;
+
+		}
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalExp = 1.0 * priceDay * days;
+
+	if (destination == "Dubai") totalExp = totalExp * 0.7;
+
+	if (destination == "Sofia") totalExp = totalExp * 1.25;
+
+	leftMoney = budget - totalExp;
+	neededMoney = totalExp - budget;
+	if (budget >= totalExp)
+	{
+		cout << "The budget for the movie is enough! We have " << leftMoney << " leva left!";
+	}
+	else if (budget < totalExp)
+	{
+		cout << "The director needs " << neededMoney << " leva more!";
+	}
+
+	return 0;
+}

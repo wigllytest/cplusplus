@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() 
+{
+	int movieCapacity; cin >> movieCapacity;
+	string action;
+	cin.ignore();
+	getline(cin, action);
+
+	double totalEarn = 0;
+	int peopleCount = 0;
+	int leftSeats = 0;
+	int saleTickets = 0;
+	while (action != "Movie time!")
+	{
+		int peopleIn = stoi(action);
+		movieCapacity -= peopleIn;
+		peopleCount += peopleIn;
+		if (movieCapacity < 0)
+		{
+			movieCapacity = 0;
+			break;
+		}
+
+		if (peopleIn % 3 == 0)
+		{
+			saleTickets = peopleIn * 5 - 5;
+		}
+		else
+		{
+			saleTickets = peopleIn * 5;
+		}
+		totalEarn += saleTickets;
+
+		getline(cin, action);
+	}
+	
+	if (action == "Movie time!")
+	{
+		cout << "There are " << movieCapacity << " seats left in the cinema." << endl;
+	}
+	else if (movieCapacity == 0)
+	{
+		cout << "The cinema is full." << endl;
+	}
+	cout << "Cinema income - " << totalEarn << " lv.";
+
+
+	return 0;
+}

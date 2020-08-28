@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+	string movie; 
+	getline(cin, movie);
+	string packet; cin >> packet;
+	int tickets; cin >> tickets;
+
+	int ticketPrice = 0;
+	double totalPrice = 0;
+
+	if (movie == "John Wick")
+	{
+		if (packet == "Drink")
+		{
+			ticketPrice = 12;
+		}
+		else if (packet == "Popcorn")
+		{
+			ticketPrice = 15;
+		}
+		else if (packet == "Menu")
+		{
+			ticketPrice = 19;
+		}
+	}
+	else if (movie == "Star Wars")
+	{
+		if (packet == "Drink")
+		{
+			ticketPrice = 18;
+		}
+		else if (packet == "Popcorn")
+		{
+			ticketPrice = 25;
+		}
+		else if (packet == "Menu")
+		{
+			ticketPrice = 30;
+		}
+	}
+	else if (movie == "Jumanji")
+	{
+		if (packet == "Drink")
+		{
+			ticketPrice = 9;
+		}
+		else if (packet == "Popcorn")
+		{
+			ticketPrice = 11;
+		}
+		else if (packet == "Menu")
+		{
+			ticketPrice = 14;
+		}
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalPrice = 1.0 * tickets * ticketPrice;
+
+	if (movie == "Star Wars" && tickets > 3) totalPrice = totalPrice * 0.7;
+
+	if (movie == "Jumanji" && tickets == 2) totalPrice = totalPrice * 0.85;
+
+	cout << "Your bill is " << totalPrice << " leva.";
+
+	return 0;
+}
