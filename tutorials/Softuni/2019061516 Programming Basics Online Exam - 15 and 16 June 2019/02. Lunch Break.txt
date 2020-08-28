@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+	string name;
+	getline(cin, name);
+	int episodeMin, restMin;
+	cin >> episodeMin >> restMin;
+	double rest = restMin * 1.0 / 8.0 + restMin * 1.0 / 4.0;
+	double leftRest = restMin - rest;
+
+	if (leftRest >= episodeMin)
+	{
+		cout << "You have enough time to watch " << name << " and left with " << ceil(leftRest - episodeMin) << " minutes free time.";
+	}
+	else if (leftRest < episodeMin)
+	{
+		cout << "You don't have enough time to watch " << name << ", you need " << ceil(episodeMin - leftRest) << " more minutes.";
+	}
+	
+
+
+	return 0;
+}
