@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+
+	double budget; cin >> budget;
+	int serialCount; cin >> serialCount;
+	string serialName;
+	double serialPrice;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	for (int i = 0; i < serialCount; i++)
+	{
+		cin.ignore();
+		getline(cin, serialName);
+		cin >> serialPrice;
+		if (serialName == "Thrones")
+		{
+			serialPrice = serialPrice * 0.5;
+		}
+		else if (serialName == "Lucifer")
+		{
+			serialPrice = serialPrice * 0.6;
+		}
+		else if (serialName == "Protector")
+		{
+			serialPrice = serialPrice * 0.7;
+		}
+		else if (serialName == "TotalDrama")
+		{
+			serialPrice = serialPrice * 0.8;
+		}
+		else if (serialName == "Area")
+		{
+			serialPrice = serialPrice * 0.9;
+		}
+		budget -= serialPrice;
+	}
+	if (budget >= 0)
+	{
+		cout << "You bought all the series and left with " << budget << " lv.";
+	}
+	else if (budget < 0)
+	{
+		cout << "You need " << abs(budget) << " lv. more to buy the series!";
+	}
+
+	return 0;
+}
