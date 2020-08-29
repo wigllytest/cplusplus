@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	string movie;
+	getline(cin, movie);
+	int pointCount = 0;
+	int maxPoints = INT_MIN;
+	string maxMovie = "";
+	int movieCount = 1;
+
+	while (movie != "STOP")
+	{
+		for (int i = 0; i < movie.length(); i++)
+		{
+			if (movie[i] > 64 && movie[i] < 91)
+			{
+				pointCount += movie[i] - movie.length();
+			}
+			else if (movie[i] > 96 && movie[i] < 123)
+			{
+				pointCount += movie[i] - 2 * movie.length();
+			}
+			else
+			{
+				pointCount += movie[i];
+			}
+		}
+
+		if (maxPoints < pointCount)
+		{
+			maxPoints = pointCount;
+			maxMovie = movie;
+		}
+		pointCount = 0;
+		getline(cin, movie);
+		if (movie == "STOP") break;
+
+		movieCount++;
+
+		if (movieCount == 7) break;
+	}
+
+	if (movieCount == 7)
+	{
+		cout << "The limit is reached." << endl;
+	}
+
+	cout << "The best movie for you is " << maxMovie << " with " << maxPoints << " ASCII sum.";
+	return 0;
+}
