@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	string nameActor;
+	double pointsAcademy;
+	int ratersCount;
+	string raterName;
+	double raterPoints;
+	
+
+	getline(cin, nameActor);
+	cin >> pointsAcademy >> ratersCount;
+	double actorPoints = pointsAcademy;
+
+	for (int i = 0; i < ratersCount; i++)
+	{
+		cin.ignore();
+		getline(cin, raterName);
+		cin >> raterPoints;
+
+		actorPoints += (raterName.length() * 1.0 * raterPoints) / 2.0;
+
+		if (actorPoints > 1250.5) break;
+	}
+	cout.setf(ios::fixed);
+	cout.precision(1);
+	double neededPoints = 1250.5 - actorPoints;
+	if (actorPoints > 1250.5)
+	{
+		cout << "Congratulations, " << nameActor << " got a nominee for leading role with " << actorPoints << "!";
+	}
+	else if (actorPoints <= 1250.5)
+	{
+		cout << "Sorry, " << nameActor << " you need " << neededPoints << " more!";
+	}
+
+
+	return 0;
+}
