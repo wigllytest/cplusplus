@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int people; cin >>people;
+	double fee; cin >> fee;
+	double bedPrice; cin >> bedPrice;
+	double UmbrellaPrice; cin >> UmbrellaPrice;
+	double totalExp = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalExp = (people * fee) + (ceil(0.75 * people ) * bedPrice) + (ceil(0.5 * people) * UmbrellaPrice);
+	cout << totalExp << " lv.";
+	
+	return 0;
+}
