@@ -36,10 +36,14 @@ int main()
 				dayPrice = 80;
 			}
 		}
+		else
+		{
+			flag = true;
+		}
 	}	
 	else if (destination == "Varna" || destination == "Burgas")
 	{
-		if (packet == "withBreakafast")
+		if (packet == "withBreakfast")
 		{ 
 			if (vip == "yes")
 			{
@@ -61,10 +65,13 @@ int main()
 					dayPrice = 100;
 				}
 		}
+		else
+		{
+			flag = true;
+		}
 	}
 	else
 	{
-		cout << "Invalid input!";
 		flag = true;
 	}
 
@@ -78,8 +85,7 @@ int main()
 	}
 	else if (days <= 0)
 	{
-		cout << "Days must be positive number!";
-		flag = true;
+		cout << "Days must be positive number!";		
 	}
 	cout.setf(ios::fixed);
 	cout.precision(2);
@@ -89,6 +95,10 @@ int main()
 	if (!flag)
 	{
 		cout << "The price is " << totalPrice << "lv! Have a nice time!";
+	}
+	else if (flag)
+	{
+		cout << "Invalid input!";
 	}
 
 
