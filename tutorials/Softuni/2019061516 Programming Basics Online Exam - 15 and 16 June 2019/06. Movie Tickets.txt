@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a1, a2, n; 
+	cin >> a1 >> a2 >> n;
+
+	for (char first = a1; first <= a2-1; first++)
+	{
+		for (int second = 1; second <= n-1; second++)
+		{
+			for (int third = 1; third <= n/2 - 1; third++)
+			{
+				if (int(first) % 2 == 1 && (second + third + int(first)) % 2 == 1)
+				{
+					cout << first << "-" << second << third << int(first) << endl;
+				}
+
+			}
+		}
+	}
+
+	return 0;
+}
