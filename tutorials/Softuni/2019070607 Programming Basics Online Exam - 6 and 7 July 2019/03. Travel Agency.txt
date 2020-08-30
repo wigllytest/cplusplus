@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	string destination; cin >> destination;
+	string packet; cin >> packet;
+	string vip; cin >> vip;
+	int days; cin >> days;
+
+	int dayPrice = 0;
+	double totalPrice = 0;
+	bool flag = false;
+
+	if (destination == "Bansko" || destination == "Borovets")
+	{
+		if (packet == "withEquipment")
+		{
+			if (vip == "yes")
+			{
+				dayPrice = 100 * 0.9;
+			}
+			else if (vip == "no")
+			{
+				dayPrice = 100;
+			}
+		}
+		else if (packet == "noEquipment")
+		{
+			if (vip == "yes")
+			{
+				dayPrice = 80 * 0.95;
+			}
+			else if (vip == "no")
+			{
+				dayPrice = 80;
+			}
+		}
+	}	
+	else if (destination == "Varna" || destination == "Burgas")
+	{
+		if (packet == "withBreakafast")
+		{ 
+			if (vip == "yes")
+			{
+				dayPrice = 130 * 0.88;
+			}
+			else if (vip == "no")
+			{
+				dayPrice = 130;
+			}
+		}
+		else if (packet == "noBreakfast")
+		{ 
+				if (vip == "yes")
+				{
+					dayPrice = 100 * 0.93;
+				}
+				else if (vip == "no")
+				{
+					dayPrice = 100;
+				}
+		}
+	}
+	else
+	{
+		cout << "Invalid input!";
+		flag = true;
+	}
+
+	if (days > 7)
+	{
+		days = days - 1;
+	}
+	else if (days <= 7 && days > 0)
+	{
+		days = days;
+	}
+	else if (days <= 0)
+	{
+		cout << "Days must be positive number!";
+		flag = true;
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalPrice = days * 1.0 * dayPrice;
+
+	if (!flag)
+	{
+		cout << "The price is " << totalPrice << "lv! Have a nice time!";
+	}
+
+
+	return 0;
+}
