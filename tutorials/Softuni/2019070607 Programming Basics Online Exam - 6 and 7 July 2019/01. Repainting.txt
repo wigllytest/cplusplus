@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int nylon, paint, thinner, hours;
+	cin >> nylon >> paint >> thinner >> hours;
+
+	double totalExp = 0;
+	double exp = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	exp = ((nylon + 2) * 1.5) + ((paint * 1.1) * 14.5) + (thinner * 5.0) + 0.4;
+	totalExp = exp * 0.3 * hours + exp;
+	cout << "Total expenses: " << totalExp << " lv.";
+
+	return 0;
+}
