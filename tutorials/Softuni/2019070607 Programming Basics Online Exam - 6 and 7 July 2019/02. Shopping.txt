@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double budget; cin >> budget;
+	int videoCount, procCount, ramCount;
+	cin >> videoCount >> procCount >> ramCount;
+
+	double totalExp = 0;
+	double videoPrice = 0;
+	double procPrice = 0;
+	double ramPrice = 0;
+	double leftMoney = 0;
+	double neededMoney = 0;
+
+	videoPrice = videoCount * 250.0;
+	procPrice = procCount * videoPrice * 0.35;
+	ramPrice = ramCount * videoPrice * 0.1;
+	totalExp = videoPrice + procPrice + ramPrice;
+	if (videoCount > procCount) totalExp = totalExp * 0.85;
+	
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	leftMoney = budget - totalExp;
+	neededMoney = totalExp - budget;
+
+	if (budget >= totalExp)
+	{
+		cout << "You have " << leftMoney << " leva left!";
+	}
+	else if (budget < totalExp)
+	{
+		cout << "Not enough money! You need " << neededMoney << " leva more!";
+	}
+
+	return 0;
+}

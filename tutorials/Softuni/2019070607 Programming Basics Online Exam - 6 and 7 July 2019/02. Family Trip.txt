@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	double budget; cin >> budget;
+	int nights; cin >> nights;
+	double nightPrice; cin >> nightPrice;
+	int percentExp; cin >> percentExp;
+
+	double totalExp = 0;
+	double leftMoney = 0;
+	double neededMoney = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (nights > 7) nightPrice = nightPrice * 0.95;
+	totalExp = (nights * nightPrice) + budget * percentExp / 100;
+	
+	leftMoney = budget - totalExp;
+	neededMoney = totalExp - budget;
+	if (budget >= totalExp)
+	{
+		cout << "Ivanovi will be left with " << leftMoney << " leva after vacation.";
+	}
+	else if (budget < totalExp)
+	{
+		cout << neededMoney << " leva needed.";
+	}
+
+	return 0;
+}
