@@ -1,0 +1,72 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string drink; cin >> drink;
+	string sugarType; cin >> sugarType;
+	int drinkCount; cin >> drinkCount;
+
+	double drinkPrice = 0;
+	double totalPrice = 0;
+
+	if (drink == "Espresso")
+	{
+		if (sugarType == "Without")
+		{
+			drinkPrice = 0.9;
+		}
+		else if (sugarType == "Normal")
+		{
+			drinkPrice = 1.0;
+		}
+		else if (sugarType == "Extra")
+		{
+			drinkPrice = 1.2;
+		}
+	}
+	else if (drink == "Cappuccino")
+	{
+		if (sugarType == "Without")
+		{
+			drinkPrice = 1.0;
+		}
+		else if (sugarType == "Normal")
+		{
+			drinkPrice = 1.2;
+		}
+		else if (sugarType == "Extra")
+		{
+			drinkPrice = 1.6;
+		}
+	}
+	else if (drink == "Tea")
+	{
+		if (sugarType == "Without")
+		{
+			drinkPrice = 0.5;
+		}
+		else if (sugarType == "Normal")
+		{
+			drinkPrice = 0.6;
+		}
+		else if (sugarType == "Extra")
+		{
+			drinkPrice = 0.7;
+		}
+	}
+
+	if (sugarType == "Without") drinkPrice = drinkPrice * 0.65;
+
+	if (drink == "Espresso" && drinkCount > 4) drinkPrice = drinkPrice * 0.75;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	totalPrice = drinkCount * drinkPrice;
+	if (totalPrice > 15) totalPrice = totalPrice * 0.8;
+
+	cout << "You bought " << drinkCount << " cups of " << drink << " for " << totalPrice << " lv.";
+
+	return 0;
+}
