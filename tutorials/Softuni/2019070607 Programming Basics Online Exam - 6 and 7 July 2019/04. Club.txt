@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	double expIncome; cin >> expIncome;
+	string action; cin >> action;
+	int numCocktails; 
+	
+	int priceCocktails = 0;
+	int price = 0;
+	double totalProfit = 0.0;
+	double neededMoney = 0.0;
+	double leftMoney = expIncome;
+
+	while (action != "Party!")
+	{
+		cin >> numCocktails;
+		priceCocktails = action.length();
+		price = priceCocktails * numCocktails;
+		double finalPrice = price;
+		if (price % 2 == 1)
+		{
+			finalPrice = finalPrice * 0.75;
+		}
+		totalProfit += finalPrice;
+		leftMoney -= finalPrice;
+		if (leftMoney <= 0)
+		{
+			break;
+		}
+
+
+
+		cin.ignore();
+		getline(cin, action);
+	}
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	if (action == "Party!")
+	{
+	neededMoney = expIncome - totalProfit;
+	cout << "We need " << neededMoney << " leva more." << endl;
+	}
+	if (totalProfit >= expIncome)
+	{
+		cout << "Target acquired." << endl;
+	}
+	cout << "Club income - " << totalProfit << " leva.";
+
+	return 0;
+}
