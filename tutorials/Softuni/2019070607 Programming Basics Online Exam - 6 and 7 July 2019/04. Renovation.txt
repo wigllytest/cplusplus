@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int height, widht; cin >> height >> widht;
+	int percent; cin >> percent;
+	string action;
+	cin.ignore();
+	getline(cin, action);
+	double paintJob = 0;
+	int leftPaintJob = 0;
+	int painLitres = 0;
+	paintJob = ceil(1.0 * height * widht * 4.0 * ((100 - 1.0 * percent) / 100.0));
+
+	while (action != "Tired!" || paintJob <= 0)
+	{
+		int paint = stoi(action);
+		if (paintJob >= paint)
+		{
+			paintJob -= paint;
+		}
+		else
+		{
+			painLitres = paint - paintJob;
+			paintJob = 0;
+			break;
+		}
+
+		getline(cin, action);
+	}
+
+	if (action == "Tired!")
+	{
+		cout << paintJob << " quadratic m left.";
+	}
+
+	if (painLitres > 0)
+	{
+		cout << "All walls are painted and you have " << painLitres << " l paint left!";
+	}
+
+	if (painLitres == 0)
+	{
+		"All walls are painted! Great job Pesho!";
+	}
+
+	return 0;
+}
