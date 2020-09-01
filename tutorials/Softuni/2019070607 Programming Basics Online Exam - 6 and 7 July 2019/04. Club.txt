@@ -6,50 +6,42 @@ using namespace std;
 int main()
 {
 	double expIncome; cin >> expIncome;
-	string action; cin >> action;
-	int numCocktails; 
+	string cocktail;
+	cin.ignore();
+	getline(cin, cocktail);
+	int cocktailCount;
 	
-	int priceCocktails = 0;
+	double income = 0;
 	int price = 0;
-	double totalProfit = 0.0;
-	double neededMoney = 0.0;
-	double leftMoney = expIncome;
-
-	while (action != "Party!")
+	double neededMoney = 0;
+	while (cocktail != "Party!" || income >= expIncome)
 	{
-		cin >> numCocktails;
-		priceCocktails = action.length();
-		price = priceCocktails * numCocktails;
-		double finalPrice = price;
-		if (price % 2 == 1)
-		{
-			finalPrice = finalPrice * 0.75;
-		}
-		totalProfit += finalPrice;
-		leftMoney -= finalPrice;
-		if (leftMoney <= 0)
-		{
-			break;
-		}
+		cin >> cocktailCount;
+		price = cocktail.length() * cocktailCount;
+		double totalPrice = price;
 
+		if (price % 2 == 1) totalPrice = price * 0.75;
 
+		income += totalPrice;
+		if (income >= expIncome) break;
 
 		cin.ignore();
-		getline(cin, action);
+		getline(cin, cocktail);
 	}
-
 	cout.setf(ios::fixed);
 	cout.precision(2);
-	if (action == "Party!")
+	neededMoney = expIncome - income;
+
+	if (cocktail == "Party!")
 	{
-	neededMoney = expIncome - totalProfit;
-	cout << "We need " << neededMoney << " leva more." << endl;
+		cout << "We need " << neededMoney << " leva more." << endl;
 	}
-	if (totalProfit >= expIncome)
+	else if (income >= expIncome)
 	{
 		cout << "Target acquired." << endl;
 	}
-	cout << "Club income - " << totalProfit << " leva.";
+
+	cout << "Club income - " << income << " leva.";
 
 	return 0;
 }
