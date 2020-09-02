@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+using namespace std;
+
+int main()
+{
+	int numGames; cin >> numGames;
+	cin.ignore();
+	string nameGame;
+
+	int hearthstoneCount = 0;
+	int fortniteCount = 0;
+	int overwatchCount = 0;
+	int othersCount = 0;
+
+	for (int i = 0; i < numGames; i++)
+	{
+		getline(cin, nameGame);
+		if (nameGame == "Hearthstone")
+		{
+			hearthstoneCount++;
+		}
+		else if (nameGame == "Fornite")
+		{
+			fortniteCount++;
+		}
+		else if (nameGame == "Overwatch")
+		{
+			overwatchCount++;
+		}
+		else
+		{
+			othersCount++;
+		}
+
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	cout << "Hearthstone - " << (hearthstoneCount * 1.0 / numGames) * 100 << "%" << endl;
+	cout << "Fornite - " << (fortniteCount * 1.0 / numGames) * 100 << "%" << endl;;
+	cout << "Overwatch - " << (overwatchCount * 1.0 / numGames) * 100 << "%" << endl;;
+	cout << "Others - " << (othersCount * 1.0 / numGames) * 100 << "%" << endl;;
+
+	return 0;
+}
