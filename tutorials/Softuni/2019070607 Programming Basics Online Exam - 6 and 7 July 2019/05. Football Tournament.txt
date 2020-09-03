@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string name; 
+	getline(cin, name);
+	int matches; cin >> matches;
+	char action;
+
+	int points = 0;
+	int winCount = 0;
+	int drawCount = 0;
+	int loseCount = 0;
+	double winrate = 0.0;
+
+	for (int i = 0; i < matches; i++)
+	{
+		cin >> action;
+		if (action == 'W')
+		{
+			points += 3;
+			winCount++;
+		}
+		else if (action == 'D')
+		{
+			points += 1;
+			drawCount++;
+		}
+		else if (action == 'L')
+		{
+			points += 0;
+			loseCount++;
+		}
+	}
+		cout.setf(ios::fixed);
+		cout.precision(2);
+		winrate = winCount * 1.0 / matches * 100.0;
+		if (matches == 0)
+		{
+			cout << name << " hasn't played any games during this season.";
+		}
+		else if (matches >= 1)
+		{
+			cout << name << " has won " << points << " points during this season." << endl;
+			cout << "Total stats:" << endl;
+			cout << "## W: " << winCount << endl;
+			cout << "## D: " << drawCount << endl;
+			cout << "## L: " << loseCount << endl;
+			cout << "Win rate: " << winrate << "%";
+
+		}
+	
+
+
+	return 0;
+}
