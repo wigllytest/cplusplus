@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	string action;
+	getline(cin, action);
+
+	string maxWord = "";
+	int strenght = 0;
+	int maxStrenght = INT_MIN;
+
+	char c = 'b';
+	while (action != "End of words")
+	{
+		for (int i = 0; i < action.length(); i++)
+		{
+			strenght += action[i];
+		}
+		
+		int lenght = action.length();
+
+		if (action[0] == 'a' || action[0] == 'e' || action[0] == 'i' || action[0] == 'o' || action[0] == 'u' || action[0] == 'y' || action[0] == 'A' || action[0] == 'E' || action[0] == 'I' || action[0] == 'O' || action[0] == 'U' || action[0] == 'Y')
+		{
+			strenght = lenght * strenght;
+		}
+		else
+		{
+			strenght = floor(strenght / lenght);
+		}
+
+		if (maxStrenght <= strenght)
+		{
+			maxStrenght = strenght;
+			maxWord = action;
+		}
+		strenght = 0;
+		getline(cin, action);
+	}
+
+	cout << "The most powerful word is " << maxWord << " - " << maxStrenght;
+	return 0;
+}
