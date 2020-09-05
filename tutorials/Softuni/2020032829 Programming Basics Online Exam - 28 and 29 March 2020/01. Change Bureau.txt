@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int bitcoin; cin >> bitcoin;
+	double uyans; cin >> uyans;
+	double commision; cin >> commision;
+
+	double euro = 0;
+
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	euro = ((bitcoin * 1168.0 / 1.95) + (uyans * 0.15 * 1.76 / 1.95)) * ((100 - commision) / 100.0);
+	cout << euro;
+	return 0;
+}
