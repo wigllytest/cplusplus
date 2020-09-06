@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int days; cin >> days;
+	double totalFood; cin >> totalFood;
+	int dogEaten, catEaten;
+	
+	double biscuitsEaten = 0;
+	double totalBiscuitsEaten = 0;
+	double totalFoodEaten = 0;
+	double dogTotalEaten = 0;
+	double catTotalEaten = 0;
+	double dayFoodEaten = 0;
+
+	for (int i = 1; i <= days; i++) // every third day = biscuits
+	{
+		cin >> dogEaten >> catEaten;
+		totalFoodEaten += dogEaten + catEaten;
+		dayFoodEaten += dogEaten + catEaten;
+
+		if (i % 3 == 0) 
+		{
+			biscuitsEaten = round(dayFoodEaten * 0.1);
+			totalBiscuitsEaten += biscuitsEaten;
+		}
+
+		dogTotalEaten += dogEaten;
+		catTotalEaten += catEaten;
+		dayFoodEaten = 0;
+	}
+
+
+	double percentEaten = totalFoodEaten * 1.0 / totalFood * 100.0;
+	double percentDogEaten = dogTotalEaten * 1.0 / totalFoodEaten * 100.0;
+	double percentCatEaten = catTotalEaten * 1.0 / totalFoodEaten * 100.0;
+
+	cout << "Total eaten biscuits: " << totalBiscuitsEaten << "gr." << endl;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+	cout << percentEaten << "% of the food has been eaten." << endl;
+	cout << percentDogEaten << "% eaten from the dog." << endl;
+	cout << percentCatEaten << "% eaten from the cat." << endl;
+
+	return 0;
+}
