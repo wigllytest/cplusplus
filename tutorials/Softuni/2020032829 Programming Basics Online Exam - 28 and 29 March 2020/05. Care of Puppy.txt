@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	int totalFoodKg; cin >> totalFoodKg;
+	string action; cin >> action;
+
+	int totalFoodG = 1000 * totalFoodKg;
+
+	while (action != "Adopted")
+	{
+		int eatenFood = stoi(action);
+		totalFoodG -= eatenFood;
+
+
+		cin >> action;
+	}
+
+	if (totalFoodG >= 0)
+	{
+		cout << "Food is enough! Leftovers: " << totalFoodG << " grams.";
+	}
+	else if (totalFoodG < 0)
+	{
+		cout << "Food is not enough. You need " << abs(totalFoodG) << " grams more.";
+	}
+	return 0;
+}
