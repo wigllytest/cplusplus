@@ -30,11 +30,7 @@ int main()
 		else if (sport == "Pilates") price = 37;
 	}
 	
-	if (age < 20)
-	{
-		double discount = 80.0 / 100.0 * price;
-		price = 1.0 * discount;
-	}
+	if (age < 20) price = price * 0.8;
 
 	cout.setf(ios::fixed);
 	cout.precision(2);
