@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	double bagageCap; cin >> bagageCap;
+	string action; cin >> action;
+
+	double bagageVol = 0.0;
+	int counter = 0;
+
+	while (action != "End")
+	{
+		counter++;
+		bagageVol = stod(action);
+
+		if (counter % 3 == 0) bagageVol = bagageVol * 1.1;
+
+		if (bagageCap < bagageVol)
+		{
+			cout << "No more space!" << endl;
+			break;
+		}
+
+		bagageCap -= bagageVol;
+
+		cin >> action;
+	}
+
+	if (action == "End")
+	{
+		cout << "Congratulations! All suitcases are loaded!" << endl;
+	}
+
+	cout << "Statistic: " << counter << " suitcases loaded.";
+	return 0;
+}
