@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int groupCount; cin >> groupCount;
+	int people;
+
+	int totalPeople = 0;
+	int musalaCount = 0;
+	int montblanCount = 0;
+	int kilimanjaroCount = 0;
+	int kTwoCount = 0;
+	int everestCount = 0;
+	double musalaPercent = 0.0;
+	double montblanPercent = 0.0;
+	double mkilimanjaroPercent = 0.0;
+	double kTwoPercent = 0.0;
+	double everestPercent = 0.0;
+
+	for (int i = 0; i < groupCount; i++)
+	{
+		cin >> people;
+		totalPeople += people;
+
+		if		(people > 0 && people < 6)   musalaCount += people;
+		else if (people > 5 && people < 13)  montblanCount += people;
+		else if (people > 12 && people < 26) kilimanjaroCount += people;
+		else if (people > 25 && people < 41) kTwoCount += people;
+		else if (people > 40)				 everestCount += people;
+		//people = 0;
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	musalaPercent = musalaCount * 1.0 / totalPeople * 100;
+	montblanPercent = montblanCount * 1.0 / totalPeople * 100;
+	mkilimanjaroPercent = kilimanjaroCount * 1.0 / totalPeople * 100;
+	kTwoPercent = kTwoCount * 1.0 / totalPeople * 100;
+	everestPercent = everestCount * 1.0 / totalPeople * 100;
+
+	cout << musalaPercent << "%" << endl;
+	cout << montblanPercent << "%" << endl;
+	cout << mkilimanjaroPercent << "%" << endl;
+	cout << kTwoPercent << "%" << endl;
+	cout << everestPercent << "%" << endl;
+
+	return 0;
+}
