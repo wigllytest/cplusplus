@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	double recordSeconds, distance, timeSecMet;
+	cin >> recordSeconds >> distance >> timeSecMet;
+
+	double totalTime = 0;
+	double neededTime = 0;
+	int loosingDist = floor(distance / 50);
+	int loosingTIme = loosingDist * 30;
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	totalTime = distance * timeSecMet + loosingTIme;
+	neededTime = totalTime - recordSeconds;
+
+	if (totalTime < recordSeconds)
+	{
+		cout << "Yes! The new record is " << totalTime << " seconds.";
+	}
+	else if (totalTime >= recordSeconds)
+	{
+		cout << "No! He was " << neededTime << " seconds slower.";
+	}
+	return 0;
+}

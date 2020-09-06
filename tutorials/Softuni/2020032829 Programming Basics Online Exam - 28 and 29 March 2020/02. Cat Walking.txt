@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int minWalk, countWalk, calories;
+	cin >> minWalk >> countWalk >> calories;
+
+	double burnedCal = 0;
+	burnedCal = (minWalk * 5.0) * countWalk;
+
+	if (burnedCal  >= calories * 1.0 / 2.0)
+	{
+		cout << "Yes, the walk for your cat is enough. Burned calories per day: " << burnedCal << ".";
+	}
+	else if (burnedCal < calories * 1.0 / 2.0)
+	{
+		cout << "No, the walk for your cat is not enough. Burned calories per day: " << burnedCal << ".";
+	}
+
+	return 0;
+}
