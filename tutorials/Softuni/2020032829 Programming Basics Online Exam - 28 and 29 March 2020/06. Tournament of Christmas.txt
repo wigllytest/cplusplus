@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int days; cin >> days;
+	string sport; 
+	string result;
+	double dayWinings = 0.0;
+	int winCount = 0;
+	int loseCount = 0;
+	int dayWin = 0;
+	int dayLose = 0;
+	double totalWinings = 0.0;
+
+
+	for (int i = 0; i < days; i++)
+	{	
+		getline (cin, sport);
+		while (sport != "Finish")
+		{		
+		cin >> result;
+
+		if		(result == "win")  winCount++;
+		else if (result == "lose") loseCount++;
+
+		getline(cin, sport);
+
+		}
+
+		dayWinings = winCount * 20.0;
+		if (winCount > loseCount)
+		{
+			dayWinings *= 1.1;
+			dayWin++;
+		}
+		else if (winCount < loseCount)
+		{
+			dayLose++;
+		}
+		totalWinings += dayWinings;
+		winCount = 0;
+		loseCount = 0;		
+	}
+	cout.setf(ios::fixed);
+	cout.precision(2);
+
+	if (dayWin > dayLose)
+	{
+		totalWinings *= 1.2;
+		cout << "You won the tournament! Total raised money: " << totalWinings;
+	}
+	else if (dayWin < dayLose)
+	{
+		cout << "You lost the tournament! Total raised money: " << totalWinings;
+	}
+
+
+	return 0;
+}
