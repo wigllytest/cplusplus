@@ -6,7 +6,9 @@ using namespace std;
 int main()
 {
 	int days; cin >> days;
-	string sport; 
+	cin.ignore();
+
+	string sport;
 	string result;
 	double dayWinings = 0.0;
 	int winCount = 0;
@@ -17,16 +19,17 @@ int main()
 
 
 	for (int i = 0; i < days; i++)
-	{	
-		getline (cin, sport);
-		while (sport != "Finish")
-		{		
-		cin >> result;
-
-		if		(result == "win")  winCount++;
-		else if (result == "lose") loseCount++;
-
+	{
 		getline(cin, sport);
+		while (sport != "Finish")
+		{
+			cin >> result;
+
+				if (result == "win")  winCount++;
+				else if (result == "lose") loseCount++;
+
+			cin.ignore();
+			getline(cin, sport);
 
 		}
 
@@ -42,7 +45,7 @@ int main()
 		}
 		totalWinings += dayWinings;
 		winCount = 0;
-		loseCount = 0;		
+		loseCount = 0;
 	}
 	cout.setf(ios::fixed);
 	cout.precision(2);
